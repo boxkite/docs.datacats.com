@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How datacats uses Docker &mdash; datacats 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="datacats 0.1 documentation" href="index.html"/>
+        <link rel="prev" title="CKAN Reference" href="ckan.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> datacats</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#what-is-datacats">What is datacats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#extensions-customization">Extensions &amp; Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#deploying">Deploying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#shell-access">Shell Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#help">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#create">create</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#deploy">deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#list">list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#logs">logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#open">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#pull">pull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#purge">purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#reload">reload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#shell">shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#start">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#stop">stop</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ckan.html">CKAN Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-a-command-within-an-extension">Run a command within an extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">How datacats uses Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#images-and-containers">Images and Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#throw-away-containers">Throw-away containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stateless-development">Stateless development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#devops">DevOps</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">datacats</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>How datacats uses Docker</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/docker.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="how-datacats-uses-docker">
+<span id="docker"></span><h1>How datacats uses Docker<a class="headerlink" href="#how-datacats-uses-docker" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="images-and-containers">
+<h2>Images and Containers<a class="headerlink" href="#images-and-containers" title="Permalink to this headline">¶</a></h2>
+<p>datacats puts CKAN inside of Docker containers. Each datacats CKAN environment
+is actually at least 3 different Docker containers. You can see this by running
+<tt class="docutils literal"><span class="pre">datacats</span> <span class="pre">info</span></tt> inside your project directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ datacats info
+Project name: datapusher
+CKAN version: master
+Default port: 5716
+ Project dir: /Users/dz/source/dcats-envs/datapusher
+    Data dir: /Users/dz/.datacats/datapusher
+  Containers: web postgres solr
+Available at: http://boot2docker:5716/
+</pre></div>
+</div>
+<p>You can see we have a <tt class="docutils literal"><span class="pre">web</span></tt> container, a <tt class="docutils literal"><span class="pre">postgres</span></tt> container, and a <tt class="docutils literal"><span class="pre">solr</span></tt>
+container. Each is responsible for the corresponding piece of CKAN - the postgres
+container is running the database, the solr container is running the solr search
+engine, and web is running CKAN itself, connecting to solr and postgres as needed.</p>
+<p>From a Docker perspective, you can see these containers by running <tt class="docutils literal"><span class="pre">docker</span> <span class="pre">ps</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ docker ps
+CONTAINER ID        IMAGE                      COMMAND                CREATED             STATUS              PORTS                    NAMES
+a3a0654c3f0a        datacats/web:latest        &quot;/scripts/web.sh&quot;      26 hours ago        Up 26 hours         0.0.0.0:5716-&gt;5000/tcp   datacats_web_datapusher
+2656f1dd7ecc        datacats/search:latest     &quot;/usr/share/tomcat6/   26 hours ago        Up 26 hours         8080/tcp                 datacats_solr_datapusher
+12dfb5f7950f        datacats/postgres:latest   &quot;/docker-entrypoint.   26 hours ago        Up 26 hours         5432/tcp                 datacats_postgres_datapusher
+</pre></div>
+</div>
+<p>You can see that each container is using a corresponding Docker image. An image
+is like a template used to run each container.</p>
+</div>
+<div class="section" id="throw-away-containers">
+<h2>Throw-away containers<a class="headerlink" href="#throw-away-containers" title="Permalink to this headline">¶</a></h2>
+<p>The most important thing to remember about your datacats containers is that they
+are <a class="reference external" href="http://12factor.net/disposability">disposable</a>. You can kill any of these containers without worry, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ docker rm -f datacats_web_datapusher
+$ docker ps
+CONTAINER ID        IMAGE                      COMMAND                CREATED             STATUS              PORTS               NAMES
+2656f1dd7ecc        datacats/search:latest     &quot;/usr/share/tomcat6/   27 hours ago        Up 27 hours         8080/tcp            datacats_solr_datapusher
+12dfb5f7950f        datacats/postgres:latest   &quot;/docker-entrypoint.   27 hours ago        Up 27 hours         5432/tcp            datacats_postgres_datapusher
+</pre></div>
+</div>
+<p>No big deal, let&#8217;s reload. This will create a new container to serve our CKAN:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ datacats reload
+Starting web server at http://boot2docker:5716/...
+</pre></div>
+</div>
+</div>
+<div class="section" id="stateless-development">
+<h2>Stateless development<a class="headerlink" href="#stateless-development" title="Permalink to this headline">¶</a></h2>
+<p>The second important thing to note is that containers are more or less immutable -
+stuff inside a container doesn&#8217;t change. This is not strictly true. Docker does
+allow us to go inside a container and do whatever we want. However, this would
+make our containers no longer disposable, since there is now state encapsulated
+inside of them we presumably wish to not lose. Because of this, datacats treats
+containers as stateless and disposable.</p>
+<p>This comes with a couple of important exceptions. Our source files and our
+database files. These are things that are obviously not
+stateless - both our source and our database change constantly as we develop and
+use our CKAN site. Our source files - the project directory - is mounted inside
+each web container when that container is started.</p>
+<p>Why is all of this important? First reason is maintainability. We have all of our
+messy moving parts encapsulated inside two discrete places - our source directory
+and our database. Everything else is disposable and we don&#8217;t have to worry about it
+breaking.</p>
+</div>
+<div class="section" id="devops">
+<h2>DevOps<a class="headerlink" href="#devops" title="Permalink to this headline">¶</a></h2>
+<p>Second important reason is deployment. Because all of CKAN is running
+inside Docker, everything is in tightly controlled image environments that are immune to changes.
+We can deploy these same images to a production server and achieve an extremly high
+level of <a class="reference external" href="http://12factor.net/dev-prod-parity">development-production parity</a>.</p>
+<p>Note also that each of our containers is responsible for running <a class="reference external" href="http://12factor.net/processes">exactly one process</a>.
+postgres container is just running postgres, solr is running solr, and web is running
+paster or apache. Each of these services is as simple as can be, and this architecture
+also allows us to <a class="reference external" href="http://12factor.net/concurrency">scale out</a> each of these parts independently.</p>
+<p>Here is an illustrative example to wrap your mind around this architecture.
+Let&#8217;s perform a database migration:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats paster --plugin=ckan db upgrade
+</pre></div>
+</div>
+<p>In the few seconds that this is running, run the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ docker ps
+CONTAINER ID        IMAGE                      COMMAND                CREATED             STATUS              PORTS                    NAMES
+56392375f4e9        datacats/web:latest        &quot;/scripts/shell.sh -   1 seconds ago       Up 1 seconds        5000/tcp                 grave_mayer
+1e6b951d172b        datacats/web:latest        &quot;/scripts/web.sh&quot;      46 minutes ago      Up 46 minutes       0.0.0.0:5716-&gt;5000/tcp   datacats_web_datapusher
+2656f1dd7ecc        datacats/search:latest     &quot;/usr/share/tomcat6/   27 hours ago        Up 27 hours         8080/tcp                 datacats_solr_datapusher
+12dfb5f7950f        datacats/postgres:latest   &quot;/docker-entrypoint.   27 hours ago        Up 27 hours         5432/tcp                 datacats_postgres_datapusher
+</pre></div>
+</div>
+<p>We see there are two containers running from the image template <tt class="docutils literal"><span class="pre">datacats/web</span></tt>.
+One of those containers is our database migration. After the migration is done,
+<a class="reference external" href="http://12factor.net/admin-processes">the container is destroyed</a>. It may take you some time to get used to this way
+of doing things. After all, we just created and destroyed a perfectly good
+&#8220;virtual machine&#8221; just so we can run a 5 second script. How wasteful! But this
+is the primary paradigm of how Docker and containers work. The sooner you get
+used to it, the happier your experience with Docker will be.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Traditionaly, we would <tt class="docutils literal"><span class="pre">ssh</span></tt> into our web server and run the migration scripts.
+However, remember that our containers are running only one process each, so they
+don&#8217;t have an ssh daemon listening which would allow us to <tt class="docutils literal"><span class="pre">ssh</span></tt> into the server,
+even if we wanted to.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="ckan.html" class="btn btn-neutral" title="CKAN Reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, boxkite.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

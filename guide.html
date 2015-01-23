@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User Guide &mdash; datacats 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="datacats 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Command Reference" href="commands.html"/>
+        <link rel="prev" title="datacats - Easy CKAN development using Docker" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> datacats</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-datacats">What is datacats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extensions-customization">Extensions &amp; Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying">Deploying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell-access">Shell Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#help">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#create">create</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#deploy">deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#list">list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#logs">logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#open">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#pull">pull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#purge">purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#reload">reload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#shell">shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#start">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#stop">stop</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ckan.html">CKAN Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-a-command-within-an-extension">Run a command within an extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">How datacats uses Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#images-and-containers">Images and Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#throw-away-containers">Throw-away containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#stateless-development">Stateless development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#devops">DevOps</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">datacats</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/guide.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-datacats">
+<h2>What is datacats<a class="headerlink" href="#what-is-datacats" title="Permalink to this headline">¶</a></h2>
+<p>CKAN can be quite difficult to develop and deploy, especially for beginners.
+The aim of datacats is to make this easier and bring CKAN within reach for a
+much wider audience.</p>
+<p>datacats relies on <a class="reference external" href="https://www.docker.com/">Docker</a> to &#8220;containerize&#8221; the CKAN environment. If you don&#8217;t
+know much about Docker, it doesn&#8217;t matter. You need to know very little about
+it in order to use datacats. If you wish to know more about how
+this project works, take a look at <a class="reference internal" href="docker.html"><em>How datacats uses Docker</em></a>.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-docker">
+<h3>Install Docker<a class="headerlink" href="#install-docker" title="Permalink to this headline">¶</a></h3>
+<p>You will need to install Docker first:</p>
+<div class="section" id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
+<p>Follow the instructions over at the <a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/">Docker Docs</a></p>
+</div>
+<div class="section" id="osx">
+<h4>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h4>
+<p>You will need <a class="reference external" href="https://docs.docker.com/installation/mac/">boot2docker</a>, the standard way to get Docker running on your Mac.</p>
+</div>
+<div class="section" id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
+<p>Native Windows support is coming soon. For now, you can run datacats inside any Linux
+Virtual Machine. Simply install VirtualBox or VMWare, create a Ubuntu VM and
+<a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/">install Docker</a> on it.</p>
+</div>
+</div>
+<div class="section" id="install-datacats">
+<h3>Install datacats<a class="headerlink" href="#install-datacats" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to install datacats is with <tt class="docutils literal"><span class="pre">pip</span></tt>. In your shell run:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install datacats
+</pre></div>
+</div>
+<p>If you do not have <tt class="docutils literal"><span class="pre">pip</span></tt> installed, you can install it first by running:</p>
+<div class="highlight-python"><div class="highlight"><pre>easy_install pip
+</pre></div>
+</div>
+<p>As part of the install datacats will pull the Docker images needed to
+create your environment. This will only happen <strong>once</strong>. Those images are then
+re-used for all subsequent environments you create.</p>
+<p>To update the Docker images manually run:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats pull
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Create a CKAN development environment. Open a shell and run:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats create catstown
+</pre></div>
+</div>
+<p>Once done, a CKAN environment is created for you in the directory <tt class="docutils literal"><span class="pre">catstown</span></tt>.
+You will be prompted to create an admin password for your instance. You can
+use this password to log into your CKAN site.A message will also appear in your
+prompt at the end of the create command, with the address of where your CKAN
+instance is running. To open that address easily at any time, you can always run:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats open catstown
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>All <tt class="docutils literal"><span class="pre">datacats</span></tt> commands work without having to specify the project to run
+them on, as long as you are within a datacats environment directory. For the
+above command, we could as well have ran:</p>
+<div class="last highlight-python"><div class="highlight"><pre>cd catstown/
+datacats open
+</pre></div>
+</div>
+</div>
+<p>Let&#8217;s see what is inside our new environment directory. <tt class="docutils literal"><span class="pre">cd</span></tt> into the directory
+and take a look at the file structure. You should see something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>catstown/
+|-ckan/
+|-ckanext-catstowntheme/
+|-development.ini
+|-schema.xml
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">ckan/</span></tt> directory is the <a class="reference external" href="http://github.com/ckan/ckan">source code of the CKAN project</a>. By default,
+datacats will initialize each project with the lastest version of CKAN. You can
+change the version you wish to run by going into that directory and checking
+out a different branch or tag. Alternatively, if you know ahead of time which
+version of CKAN you wish to run, you can pass a flag directly to the
+<tt class="docutils literal"><span class="pre">datacats</span> <span class="pre">create</span></tt> command.</p>
+<p>The <tt class="docutils literal"><span class="pre">ckanext-catstowntheme</span></tt> directory is an auto-generated sample
+<a class="reference external" href="http://extensions.ckan.org/">CKAN extension</a>.
+While you can use CKAN in it&#8217;s default form, most organizations and governments
+deploying CKAN customize it in some way. Many forms of customization, such as
+<a class="reference external" href="http://docs.ckan.org/en/latest/theming/index.html">designing your own custom theme</a>, do not require a deep knowledge of CKAN. The
+<tt class="docutils literal"><span class="pre">ckanext-catstowntheme</span></tt> extension gives you a very basic skeleton which you
+can use to get started.</p>
+<p>The <tt class="docutils literal"><span class="pre">development.ini</span></tt> file holds all the configuration options for your CKAN
+environment. All of these options are described <a class="reference external" href="http://docs.ckan.org/en/latest/maintaining/configuration.html">here</a>. Open this file and find a
+line that starts with <tt class="docutils literal"><span class="pre">ckan.plugins</span></tt>. It will look something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>ckan.plugins = datastore text_preview recline_preview catstown_theme
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">catstown_theme</span></tt> is the extension endpoint for our kittyville extension,
+defined in <tt class="docutils literal"><span class="pre">ckanext-catstowntheme/setup.py</span></tt>. We can enable and disable our
+extension by adding it or removing it from the plugins list above.</p>
+</div>
+<div class="section" id="extensions-customization">
+<h2>Extensions &amp; Customization<a class="headerlink" href="#extensions-customization" title="Permalink to this headline">¶</a></h2>
+<p>To see how this works, let us install another extension into our environment.
+A good one to use is <a class="reference external" href="http://github.com/ckan/ckanext-pages">pages</a>, which adds a simple CMS to CKAN so we can add
+custom content pages to our site. First, clone the pages source code into your
+environment. In the <tt class="docutils literal"><span class="pre">catstown/</span></tt> environment directory, run:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:ckan/ckanext-pages.git
+</pre></div>
+</div>
+<p>This will clone the source into the ckanext-pages/ directory, right next to
+<tt class="docutils literal"><span class="pre">ckan/</span></tt> and <tt class="docutils literal"><span class="pre">ckanext-catstowntheme/</span></tt> like so:</p>
+<div class="highlight-python"><div class="highlight"><pre>kittyville/
+|-ckan/
+|-ckanext-catstowntheme/
+|-ckanext-pages/
+|-development.ini
+|-schema.xml
+</pre></div>
+</div>
+<p>Next, install this extension into your environment by running:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats install
+</pre></div>
+</div>
+<p>The install command will iterate through your environment directory and install
+all your extensions. After this is complete, we need to open the <tt class="docutils literal"><span class="pre">development.ini</span></tt>
+file again and add the pages extension to our list of installed extensions:</p>
+<div class="highlight-python"><div class="highlight"><pre>ckan.plugins = datastore text_preview recline_preview catstown_theme pages
+</pre></div>
+</div>
+<p>Finally, reload CKAN for the config changes to take effect:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats reload
+</pre></div>
+</div>
+<p>And our extension is now live! Open up your CKAN site, log into it, and you should
+see a button in the top toolbar that will let you create custom content pages.</p>
+</div>
+<div class="section" id="deploying">
+<h2>Deploying<a class="headerlink" href="#deploying" title="Permalink to this headline">¶</a></h2>
+<p>To deploy your brand new CKAN instance to the DataCats.com managed cloud, simply run:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats deploy
+</pre></div>
+</div>
+<p>This will create a new deployment with all your settings and installed extensions,
+as well as the correct CKAN version.</p>
+<p>If you prefer to use your own server, you can still deploy CKAN using datacats.
+This is outside of the scope for this documentation, but the
+process is similar to following this guide, with some minor but important changes.
+You will want to make sure your CKAN is running a production web server,
+you will need to set up DNS and, optionally, emails, backups, logs and other
+miscellaneous items. If you plan to go this route, you should understand a bit
+more about how datacats works under-the-hood. See <a class="reference internal" href="docker.html"><em>How datacats uses Docker</em></a></p>
+</div>
+<div class="section" id="shell-access">
+<h2>Shell Access<a class="headerlink" href="#shell-access" title="Permalink to this headline">¶</a></h2>
+<p>To run an interactive shell within your CKAN environment, run:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats shell catstown
+</pre></div>
+</div>
+<p>Where <tt class="docutils literal"><span class="pre">catstown</span></tt> is your datacats environment name. The shell will immediately
+drop you inside your project directory, and it will activate the <tt class="docutils literal"><span class="pre">virtualenv</span></tt>.
+The shell is useful if you want to run admin <tt class="docutils literal"><span class="pre">paster</span></tt> tasks such as database
+migrations, or you simply want to poke around your CKAN instance.</p>
+</div>
+<div class="section" id="paster-commands">
+<h2>Paster Commands<a class="headerlink" href="#paster-commands" title="Permalink to this headline">¶</a></h2>
+<p>To quickly run CKAN <tt class="docutils literal"><span class="pre">paster</span></tt> commands, you can do the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats paster --plugin=ckan sysadmin add joe
+</pre></div>
+</div>
+<p>Take a look at the <a class="reference external" href="http://docs.ckan.org/en/latest/maintaining/paster.html">CKAN paster page</a> for a list of available commands. Note
+that with datacats, you don&#8217;t need to worry about activating your <tt class="docutils literal"><span class="pre">virtualenv</span></tt>,
+and you do not need to pass the <tt class="docutils literal"><span class="pre">--config</span></tt> option to paster. datacats handles this
+for you automatically.</p>
+</div>
+<div class="section" id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<p>To see the log output of your CKAN:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats logs
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands.html" class="btn btn-neutral float-right" title="Command Reference">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="datacats - Easy CKAN development using Docker"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, boxkite.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

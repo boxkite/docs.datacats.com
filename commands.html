@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command Reference &mdash; datacats 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="datacats 0.1 documentation" href="index.html"/>
+        <link rel="next" title="CKAN Reference" href="ckan.html"/>
+        <link rel="prev" title="User Guide" href="guide.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> datacats</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#what-is-datacats">What is datacats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#extensions-customization">Extensions &amp; Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#deploying">Deploying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#shell-access">Shell Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Command Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#help">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create">create</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy">deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list">list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logs">logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pull">pull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#purge">purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reload">reload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shell">shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stop">stop</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ckan.html">CKAN Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-a-command-within-an-extension">Run a command within an extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">How datacats uses Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#images-and-containers">Images and Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#throw-away-containers">Throw-away containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#stateless-development">Stateless development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#devops">DevOps</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">datacats</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Command Reference</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/commands.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="command-reference">
+<h1>Command Reference<a class="headerlink" href="#command-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="help">
+<h2>help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>datacats command line interface
+
+Usage:
+  datacats COMMAND [ARGUMENTS...]
+  datacats --help [COMMAND]
+  datacats --version
+
+The datacats commands available are:
+  create      Create a new environment
+  deploy      Deploy environment to production DataCats.com cloud service
+  info        Display information about environment and running containers
+  init        Initialize a purged environment or copied environment directory
+  install     Install or reinstall Python packages within this project
+  list        List all environments for this user
+  logs        Display or follow container logs
+  open        Open web browser window to this environment
+  pull        Download or update required datacats docker images
+  purge       Purge environment database and uploaded files
+  reload      Reload environment source and configuration
+  shell       Run a command or interactive shell within this environment
+  start       Create containers and start serving environment
+  stop        Stop serving environment and remove all its containers
+
+See &#39;datacats help COMMAND&#39; for information about options and
+arguments available to each command.
+</pre></div>
+</div>
+</div>
+<div class="section" id="create">
+<h2>create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Create a new environment
+
+Usage:
+  datacats create [-bin] [--ckan=CKAN_VERSION] ENVIRONMENT_DIR [PORT]
+
+Options:
+  --ckan=CKAN_VERSION     Use CKAN version CKAN_VERSION, defaults to
+                          latest development release
+  -b --bare               Bare CKAN site with no example extension
+  -i --image-only         Create the environment but don&#39;t start containers
+  -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
+
+ENVIRONMENT_DIR is a path for the new environment directory. The last
+part of this path will be used as the environment name.
+</pre></div>
+</div>
+</div>
+<div class="section" id="deploy">
+<h2>deploy<a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Deploy environment to production DataCats.com cloud service
+
+Usage:
+  datacats deploy [ENVIRONMENT]
+
+ENVIRONMENT may be an environment name or a path to a environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="info">
+<h2>info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Display information about environment and running containers
+
+Usage:
+  datacats info [-qr] [ENVIRONMENT]
+
+Options:
+  -q --quiet         Echo only the web URL or nothing if not running
+  -r --remote        Information about DataCats.com cloud instance
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="init">
+<h2>init<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Initialize a purged environment or copied environment directory
+
+Usage:
+  datacats init [-in] [ENVIRONMENT_DIR [PORT]]
+
+Options:
+  -i --image-only         Create the environment but don&#39;t start containers
+  -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
+
+ENVIRONMENT_DIR is an existing datacats environment directory. Defaults to &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="install">
+<h2>install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Install or reinstall Python packages within this environment
+
+Usage:
+  datacats install [-c] [ENVIRONMENT]
+
+Options:
+  -c --clean         Reinstall packages into a clean virtualenv
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="list">
+<h2>list<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>List all environments for this user
+
+Usage:
+  datacats list
+</pre></div>
+</div>
+</div>
+<div class="section" id="logs">
+<h2>logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Display or follow container logs
+
+Usage:
+  datacats logs [-d | -s] [-tr] [--tail=LINES] [ENVIRONMENT]
+  datacats logs -f [-d | -s] [-r] [ENVIRONMENT]
+
+Options:
+  -d --postgres-logs Show postgres database logs instead of web logs
+  -f --follow        Follow logs instead of exiting immediately
+  -r --remote        Retrieve logs from DataCats.com cloud instance
+  -s --solr-logs     Show solr search logs instead of web logs
+  -t --timestamps    Add timestamps to log lines
+  --tail=LINES       Number of lines to show [default: all]
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="open">
+<h2>open<a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Open web browser window to this environment
+
+Usage:
+  datacats open [-r] [ENVIRONMENT]
+
+Options:
+  -r --remote        Open DataCats.com cloud instance address
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="pull">
+<h2>pull<a class="headerlink" href="#pull" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Download or update required datacats docker images
+
+Usage:
+  datacats pull
+</pre></div>
+</div>
+</div>
+<div class="section" id="purge">
+<h2>purge<a class="headerlink" href="#purge" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Purge environment database and uploaded files
+
+Usage:
+  datacats purge [--delete-environment] [ENVIRONMENT]
+
+Options:
+  --delete-environment   Delete environment directory as well as its data
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="reload">
+<h2>reload<a class="headerlink" href="#reload" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Reload environment source and configuration
+
+Usage:
+  datacats reload [-bp] [ENVIRONMENT [PORT]]
+  datacats reload -r [-b] [ENVIRONMENT]
+
+Options:
+  -b --background    Don&#39;t wait for response from web server
+  -p --production    Reload with apache and debug=false
+  -r --remote        Reload DataCats.com cloud instance
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="shell">
+<h2>shell<a class="headerlink" href="#shell" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Run a command or interactive shell within this environment
+
+Usage:
+  datacats shell [ENVIRONMENT [COMMAND...]]
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="start">
+<h2>start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Create containers and start serving environment
+
+Usage:
+  datacats start [-bp] [ENVIRONMENT [PORT]]
+  datacats start -r [-b] [ENVIRONMENT]
+
+Options:
+  -b --background    Don&#39;t wait for response from web server
+  -p --production    Start with apache and debug=false
+  -r --remote        Start DataCats.com cloud instance
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="stop">
+<h2>stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Stop serving environment and remove all its containers
+
+Usage:
+  datacats stop [-r] [ENVIRONMENT]
+
+Options:
+  -r --remote        Stop DataCats.com cloud instance
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ckan.html" class="btn btn-neutral float-right" title="CKAN Reference">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="guide.html" class="btn btn-neutral" title="User Guide"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, boxkite.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
