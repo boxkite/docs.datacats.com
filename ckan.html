@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-a-command-within-an-extension">Run a command within an extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-on-core-ckan">Working on Core CKAN</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">How datacats uses Docker</a><ul>
@@ -147,6 +148,10 @@ common CKAN tasks. We&#8217;re always looking for more. If you have examples of 
 own you wish to share, please submit a pull request.</p>
 <div class="section" id="run-an-interactive-paster-shell">
 <h2>Run an interactive Paster Shell<a class="headerlink" href="#run-an-interactive-paster-shell" title="Permalink to this headline">¶</a></h2>
+<p>Anywhere within your datacats environment directory, run:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats shell . paster --plugin=pylons shell
+</pre></div>
+</div>
 </div>
 <div class="section" id="load-data-from-one-ckan-into-another">
 <h2>Load data from one CKAN into another<a class="headerlink" href="#load-data-from-one-ckan-into-another" title="Permalink to this headline">¶</a></h2>
@@ -156,6 +161,18 @@ own you wish to share, please submit a pull request.</p>
 </div>
 <div class="section" id="run-a-command-within-an-extension">
 <h2>Run a command within an extension<a class="headerlink" href="#run-a-command-within-an-extension" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="working-on-core-ckan">
+<h2>Working on Core CKAN<a class="headerlink" href="#working-on-core-ckan" title="Permalink to this headline">¶</a></h2>
+<p>If you plan on working on core CKAN code, you should first <tt class="docutils literal"><span class="pre">unshallow</span></tt> your
+copy of the CKAN source. By default datacats only checks out a shallow copy of
+the CKAN github repo. This can cause minor headaches if you are planning on
+contributing your code changes to core CKAN.</p>
+<p>In the <tt class="docutils literal"><span class="pre">/ckan</span></tt> directory of your datacats environment, run the following git
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre>git fetch --unshallow
+</pre></div>
+</div>
 </div>
 </div>
 

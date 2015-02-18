@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#run-a-command-within-an-extension">Run a command within an extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#working-on-core-ckan">Working on Core CKAN</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">How datacats uses Docker</a><ul>
@@ -313,7 +314,7 @@ migrations, or you simply want to poke around your CKAN instance.</p>
 <div class="section" id="paster-commands">
 <h2>Paster Commands<a class="headerlink" href="#paster-commands" title="Permalink to this headline">¶</a></h2>
 <p>To quickly run CKAN <tt class="docutils literal"><span class="pre">paster</span></tt> commands, you can do the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>datacats paster --plugin=ckan sysadmin add joe
+<div class="highlight-python"><div class="highlight"><pre>datacats shell catstown paster --plugin=ckan sysadmin add joe
 </pre></div>
 </div>
 <p>Take a look at the <a class="reference external" href="http://docs.ckan.org/en/latest/maintaining/paster.html">CKAN paster page</a> for a list of available commands. Note
