@@ -83,6 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="commands.html#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#logs">logs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#open">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#paster">paster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#pull">pull</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#purge">purge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#reload">reload</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-a-command-within-an-extension">Run a command within an extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-celery-tasks">Run Celery tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#working-on-core-ckan">Working on Core CKAN</a></li>
 </ul>
 </li>
@@ -160,7 +161,9 @@ this project works, take a look at <a class="reference internal" href="docker.ht
 <p>You will need to install Docker first:</p>
 <div class="section" id="linux">
 <h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
-<p>Follow the instructions over at the <a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/">Docker Docs</a></p>
+<p>Follow the instructions over at the <a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/#docker-maintained-package-installation">Docker Docs</a>. Make sure to install the
+Docker-maintained version of Docker, not the official Ubuntu-maintained version
+of Docker, which is out-of-date.</p>
 </div>
 <div class="section" id="osx">
 <h4>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h4>
@@ -170,7 +173,7 @@ this project works, take a look at <a class="reference internal" href="docker.ht
 <h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
 <p>Native Windows support is coming soon. For now, you can run datacats inside any Linux
 Virtual Machine. Simply install VirtualBox or VMWare, create a Ubuntu VM and
-<a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/">install Docker</a> on it.</p>
+<a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/#docker-maintained-package-installation">install Docker</a> on it.</p>
 </div>
 </div>
 <div class="section" id="install-datacats">
@@ -287,7 +290,7 @@ see a button in the top toolbar that will let you create custom content pages.</
 <div class="section" id="deploying">
 <h2>Deploying<a class="headerlink" href="#deploying" title="Permalink to this headline">¶</a></h2>
 <p>To deploy your brand new CKAN instance to the DataCats.com managed cloud, simply run:</p>
-<div class="highlight-python"><div class="highlight"><pre>datacats deploy
+<div class="highlight-python"><div class="highlight"><pre>datacats deploy --create
 </pre></div>
 </div>
 <p>This will create a new deployment with all your settings and installed extensions,
@@ -314,13 +317,23 @@ migrations, or you simply want to poke around your CKAN instance.</p>
 <div class="section" id="paster-commands">
 <h2>Paster Commands<a class="headerlink" href="#paster-commands" title="Permalink to this headline">¶</a></h2>
 <p>To quickly run CKAN <tt class="docutils literal"><span class="pre">paster</span></tt> commands, you can do the following:</p>
-<div class="highlight-python"><div class="highlight"><pre>datacats shell catstown paster --plugin=ckan sysadmin add joe
+<div class="highlight-python"><div class="highlight"><pre>datacats paster sysadmin add joe
 </pre></div>
 </div>
-<p>Take a look at the <a class="reference external" href="http://docs.ckan.org/en/latest/maintaining/paster.html">CKAN paster page</a> for a list of available commands. Note
-that with datacats, you don&#8217;t need to worry about activating your <tt class="docutils literal"><span class="pre">virtualenv</span></tt>,
-and you do not need to pass the <tt class="docutils literal"><span class="pre">--config</span></tt> option to paster. datacats handles this
-for you automatically.</p>
+<p>Take a look at the <a class="reference external" href="http://docs.ckan.org/en/latest/maintaining/paster.html">CKAN paster page</a> for a list of available commands.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">With datacats, you don&#8217;t need to worry about activating your <tt class="docutils literal"><span class="pre">virtualenv</span></tt>,
+and you do not need to pass the <tt class="docutils literal"><span class="pre">--config</span></tt> option to paster. You also
+do not need to specify the <tt class="docutils literal"><span class="pre">--plugin=ckan</span></tt> option.
+datacats handles this for you automatically.</p>
+</div>
+<p>If you have <tt class="docutils literal"><span class="pre">paster</span></tt> commands inside your CKAN extensions, you can <tt class="docutils literal"><span class="pre">cd</span></tt> into
+the extension directory and run the command from there:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ckanext-archiver/
+datacats paster archiver clean
+</pre></div>
+</div>
 </div>
 <div class="section" id="logs">
 <h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>

@@ -83,6 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logs">logs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#open">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#paster">paster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pull">pull</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#purge">purge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reload">reload</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-a-command-within-an-extension">Run a command within an extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ckan.html#run-celery-tasks">Run Celery tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ckan.html#working-on-core-ckan">Working on Core CKAN</a></li>
 </ul>
 </li>
@@ -161,6 +162,7 @@ The datacats commands available are:
   list        List all environments for this user
   logs        Display or follow container logs
   open        Open web browser window to this environment
+  paster      Run a paster command from the current directory
   pull        Download or update required datacats docker images
   purge       Purge environment database and uploaded files
   reload      Reload environment source and configuration
@@ -197,10 +199,17 @@ part of this path will be used as the environment name.
 <div class="highlight-text"><div class="highlight"><pre>Deploy environment to production DataCats.com cloud service
 
 Usage:
-  datacats deploy [ENVIRONMENT]
+  datacats deploy [--create] [ENVIRONMENT [TARGET_NAME]]
+
+Options:
+  --create                Create a new environment on DataCats.com instead
+                          of updating an existing environment
 
 ENVIRONMENT may be an environment name or a path to a environment directory.
 Default: &#39;.&#39;
+
+TARGET_NAME is the name of the environment on DataCats.com. Defaults to
+the environment name.
 </pre></div>
 </div>
 </div>
@@ -292,6 +301,19 @@ Options:
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="paster">
+<h2>paster<a class="headerlink" href="#paster" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Run a paster command from the current directory
+
+Usage:
+  datacats paster [COMMAND...]
+
+You must be inside a datacats environment to run this. The paster command will
+run within your current directory inside the environment. You don&#39;t need to
+specify the --plugin option. The --config option also need not be specified.
 </pre></div>
 </div>
 </div>

@@ -83,6 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="commands.html#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#logs">logs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#open">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#paster">paster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#pull">pull</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#purge">purge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#reload">reload</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-a-command-within-an-extension">Run a command within an extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-celery-tasks">Run Celery tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-on-core-ckan">Working on Core CKAN</a></li>
 </ul>
 </li>
@@ -159,8 +160,14 @@ own you wish to share, please submit a pull request.</p>
 <div class="section" id="run-the-ckan-test-suite">
 <h2>Run the CKAN test suite<a class="headerlink" href="#run-the-ckan-test-suite" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="run-a-command-within-an-extension">
-<h2>Run a command within an extension<a class="headerlink" href="#run-a-command-within-an-extension" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="run-celery-tasks">
+<h2>Run Celery tasks<a class="headerlink" href="#run-celery-tasks" title="Permalink to this headline">¶</a></h2>
+<p>If you have an extension that is using Celery, make sure that the extension is
+installed in your environment with <tt class="docutils literal"><span class="pre">datacats</span> <span class="pre">install</span></tt>. You can then run a
+container with a celery daemon like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats paster celeryd
+</pre></div>
+</div>
 </div>
 <div class="section" id="working-on-core-ckan">
 <h2>Working on Core CKAN<a class="headerlink" href="#working-on-core-ckan" title="Permalink to this headline">¶</a></h2>

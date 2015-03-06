@@ -24,9 +24,11 @@ You will need to install Docker first:
 
 Linux
 #####
-Follow the instructions over at the `Docker Docs`_
+Follow the instructions over at the `Docker Docs`_. Make sure to install the
+Docker-maintained version of Docker, not the official Ubuntu-maintained version
+of Docker, which is out-of-date.
 
-.. _Docker Docs: https://docs.docker.com/installation/ubuntulinux/
+.. _Docker Docs: https://docs.docker.com/installation/ubuntulinux/#docker-maintained-package-installation
 
 OSX
 ###
@@ -159,7 +161,7 @@ Deploying
 ---------
 To deploy your brand new CKAN instance to the DataCats.com managed cloud, simply run: ::
 
-    datacats deploy
+    datacats deploy --create
 
 This will create a new deployment with all your settings and installed extensions,
 as well as the correct CKAN version.
@@ -187,12 +189,22 @@ Paster Commands
 ---------------
 To quickly run CKAN ``paster`` commands, you can do the following: ::
 
-    datacats shell catstown paster --plugin=ckan sysadmin add joe
+    datacats paster sysadmin add joe
 
-Take a look at the `CKAN paster page`_ for a list of available commands. Note
-that with datacats, you don't need to worry about activating your ``virtualenv``,
-and you do not need to pass the ``--config`` option to paster. datacats handles this
-for you automatically.
+Take a look at the `CKAN paster page`_ for a list of available commands.
+
+.. note::
+
+    With datacats, you don't need to worry about activating your ``virtualenv``,
+    and you do not need to pass the ``--config`` option to paster. You also
+    do not need to specify the ``--plugin=ckan`` option.
+    datacats handles this for you automatically.
+
+If you have ``paster`` commands inside your CKAN extensions, you can ``cd`` into
+the extension directory and run the command from there: ::
+
+    cd ckanext-archiver/
+    datacats paster archiver clean
 
 Logs
 ----
