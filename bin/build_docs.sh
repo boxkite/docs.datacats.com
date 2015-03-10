@@ -7,6 +7,7 @@ rm -r build/sphinx || true
 python setup.py build_sphinx
 
 cd ../docs.datacats.com
+git reset --hard
 git fetch origin gh-pages
 git merge --ff-only origin/gh-pages
 git rm `git ls-files`
