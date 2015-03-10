@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CKAN Reference &mdash; datacats 0.1 documentation</title>
+  <title>FAQ &mdash; datacats 0.1 documentation</title>
   
 
   
@@ -92,12 +92,13 @@
 <li class="toctree-l2"><a class="reference internal" href="commands.html#stop">stop</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">CKAN Reference</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">FAQ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-celery-tasks">Run Celery tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-on-core-ckan">Working on Core CKAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boot2docker-upgrading-or-recovering-from-failures">boot2docker - Upgrading or Recovering from failures</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">How datacats uses Docker</a><ul>
@@ -131,10 +132,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>CKAN Reference</li>
+    <li>FAQ</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/ckan.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/faq.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -142,8 +143,8 @@
 </div>
           <div role="main" class="document">
             
-  <div class="section" id="ckan-reference">
-<h1>CKAN Reference<a class="headerlink" href="#ckan-reference" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
 <p>This page contains a few recipes on how to use DataCats to easily accomplish
 common CKAN tasks. We&#8217;re always looking for more. If you have examples of your
 own you wish to share, please submit a pull request.</p>
@@ -180,6 +181,31 @@ command:</p>
 <div class="highlight-python"><div class="highlight"><pre>git fetch --unshallow
 </pre></div>
 </div>
+</div>
+<div class="section" id="boot2docker-upgrading-or-recovering-from-failures">
+<h2>boot2docker - Upgrading or Recovering from failures<a class="headerlink" href="#boot2docker-upgrading-or-recovering-from-failures" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you will need to upgrade boot2docker. Or, you may encounter a problem
+where the boot2docker VM is unreachable or otherwise broken. Whatever the case,
+if you had to delete the boot2docker VM and create a new one, follow these steps
+to get your CKAN environments up and running again:</p>
+<ul>
+<li><p class="first">First, you will need to pull the CKAN docker images again:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats pull
+</pre></div>
+</div>
+</li>
+<li><p class="first">Clean your datacats environments so they can be re-initialized:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd myckan
+datacats purge
+</pre></div>
+</div>
+</li>
+<li><p class="first">Finally, initialize the environment:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats init
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 
