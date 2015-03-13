@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FAQ &mdash; datacats 0.1 documentation</title>
+  <title>FAQ &mdash; datacats 0.5 documentation</title>
   
 
   
@@ -24,13 +24,13 @@
 
   
   
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/datacats_theme.css" type="text/css" />
   
 
   
 
   
-    <link rel="top" title="datacats 0.1 documentation" href="index.html"/>
+    <link rel="top" title="datacats 0.5 documentation" href="index.html"/>
         <link rel="next" title="How datacats uses Docker" href="docker.html"/>
         <link rel="prev" title="User Guide" href="guide.html"/> 
 
@@ -79,6 +79,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">FAQ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-celery-tasks">Run Celery tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cleaning-the-database-doesn-t-work">Cleaning the database doesn&#8217;t work.</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-on-core-ckan">Working on Core CKAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#boot2docker-upgrading-or-recovering-from-failures">boot2docker - Upgrading or Recovering from failures</a></li>
 </ul>
@@ -136,14 +137,13 @@
     <li>FAQ</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/faq.txt" rel="nofollow"> View page source</a>
-        
       </li>
   </ul>
   <hr/>
 </div>
           <div role="main" class="document">
             
+<span id="forkongithub"><a href="https://github.com/boxkite/datacats">Fork me on GitHub</a></span>
   <div class="section" id="faq">
 <h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
 <p>This page contains a few recipes on how to use DataCats to easily accomplish
@@ -162,6 +162,18 @@ own you wish to share, please submit a pull request.</p>
 installed in your environment with <tt class="docutils literal"><span class="pre">datacats</span> <span class="pre">install</span></tt>. You can then run a
 container with a celery daemon like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>datacats paster celeryd
+</pre></div>
+</div>
+</div>
+<div class="section" id="cleaning-the-database-doesn-t-work">
+<h2>Cleaning the database doesn&#8217;t work.<a class="headerlink" href="#cleaning-the-database-doesn-t-work" title="Permalink to this headline">¶</a></h2>
+<p>When running the command <tt class="docutils literal"><span class="pre">paster</span> <span class="pre">db</span> <span class="pre">clean</span></tt>, the command will freeze as it is
+blocked from cleaning the database if CKAN is connected to the db (<a class="reference external" href="https://github.com/ckan/ckan/issues/2306">see issue</a>)
+. To get around this, stop the <tt class="docutils literal"><span class="pre">web</span></tt> docker container for your environment
+first, then issue the command, and reload datacats:</p>
+<div class="highlight-python"><div class="highlight"><pre>docker stop datacats_web_myckan
+datacats paster db clean
+datacats reload
 </pre></div>
 </div>
 </div>
@@ -243,7 +255,7 @@ datacats purge
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1',
+            VERSION:'0.5',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
