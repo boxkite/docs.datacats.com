@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Change Log &mdash; datacats 0.9dev1 documentation</title>
+  <title>Change Log &mdash; datacats 0.9 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 0.9dev1 documentation" href="index.html"/>
+    <link rel="top" title="datacats 0.9 documentation" href="index.html"/>
         <link rel="prev" title="Command Reference" href="commands.html"/> 
 
   
@@ -111,8 +111,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -152,7 +153,23 @@
   <div class="section" id="change-log">
 <h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>0.8<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.9<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>install &#8211;clean: install dependencies to an empty virtualenv
+to support running datacats with older ckan versions (local only)</li>
+<li>install: install packages before package requirements so that packages
+in the environment may override dependencies listed in other
+packages</li>
+<li>deploy: show the URL of the deployed site like start does for local sites</li>
+<li>create: warn when the name chosen may not be used with deploy</li>
+<li>for for negotiating docker API version so that docker-py and docker don&#8217;t
+always need to be the exact matching versions</li>
+<li>fix for a breaking API change in the docker 1.6 API</li>
+<li>fix for docker-py constant moved to a different module in 1.2.0</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>0.8<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>create, init: fix for race between db creation and init</li>
 <li>create, init, start, reload: fix for automatic port selection</li>
@@ -167,8 +184,8 @@ in ckan+extension module directories</li>
 <li>purge: work even when some directories are missing</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>0.7<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.7<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>initial public release</li>
 </ul>
@@ -212,7 +229,7 @@ in ckan+extension module directories</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.9dev1',
+            VERSION:'0.9',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
