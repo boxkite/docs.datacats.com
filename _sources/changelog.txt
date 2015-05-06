@@ -1,6 +1,16 @@
 Change Log
 ==========
 
+0.9.2
+-----
+
+- fix for deploy with docker 1.6
+
+0.9.1
+-----
+
+- fix for shell command when containers already running
+
 0.9
 ---
 
