@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Command Reference &mdash; datacats 0.10.0dev1 documentation</title>
+  <title>Command Reference &mdash; datacats 0.10.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 0.10.0dev1 documentation" href="index.html"/>
+    <link rel="top" title="datacats 0.10.0 documentation" href="index.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="How datacats uses Docker" href="docker.html"/> 
 
@@ -112,11 +112,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -191,9 +193,10 @@ arguments available to each command.
 <div class="highlight-text"><div class="highlight"><pre>Create a new environment
 
 Usage:
-  datacats create [-bin] [--ckan=CKAN_VERSION] ENVIRONMENT_DIR [PORT]
+  datacats create [-bni] [--address=IP] [--ckan=CKAN_VERSION] ENVIRONMENT_DIR [PORT]
 
 Options:
+  --address=IP            Address to listen on (Linux-only) [default: 127.0.0.1]
   --ckan=CKAN_VERSION     Use CKAN version CKAN_VERSION, defaults to
                           latest development release
   -b --bare               Bare CKAN site with no example extension
@@ -245,9 +248,10 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Initialize a purged environment or copied environment directory
 
 Usage:
-  datacats init [-in] [ENVIRONMENT_DIR [PORT]]
+  datacats init [-ni] [--address=IP] [ENVIRONMENT_DIR [PORT]]
 
 Options:
+  --address=IP            Address to listen on (Linux-only) [default: 127.0.0.1]
   -i --image-only         Create the environment but don&#39;t start containers
   -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
 
@@ -345,10 +349,11 @@ Usage:
 <div class="highlight-text"><div class="highlight"><pre>Purge environment database and uploaded files
 
 Usage:
-  datacats purge [--delete-environment] [ENVIRONMENT]
+  datacats purge [-y] [--delete-environment] [ENVIRONMENT]
 
 Options:
   --delete-environment   Delete environment directory as well as its data
+  -y --yes               Respond yes to all prompts (i.e. force)
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -360,10 +365,11 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Reload environment source and configuration
 
 Usage:
-  datacats reload [-bp] [ENVIRONMENT [PORT]]
-  datacats reload -r [-b] [ENVIRONMENT]
+  datacats reload [-bp] [--address=IP] [ENVIRONMENT [PORT]]
+  datacats reload -r [-b] [--address=IP] [ENVIRONMENT]
 
 Options:
+  --address=IP       Address to listen on (Linux-only) [default: 127.0.0.1]
   -b --background    Don&#39;t wait for response from web server
   -p --production    Reload with apache and debug=false
   -r --remote        Reload DataCats.com cloud instance
@@ -393,10 +399,11 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Create containers and start serving environment
 
 Usage:
-  datacats start [-bp] [ENVIRONMENT [PORT]]
-  datacats start -r [-b] [ENVIRONMENT]
+  datacats start [-bp] [--address=IP] [ENVIRONMENT [PORT]]
+  datacats start -r [-b] [--address=IP] [ENVIRONMENT]
 
 Options:
+  --address=IP       Address to listen on (Linux-only) [default: 127.0.0.1]
   -b --background    Don&#39;t wait for response from web server
   -p --production    Start with apache and debug=false
   -r --remote        Start DataCats.com cloud instance
@@ -462,7 +469,7 @@ Default: &#39;.&#39;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.10.0dev1',
+            VERSION:'0.10.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
