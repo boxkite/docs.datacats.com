@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Command Reference &mdash; datacats 0.10.0 documentation</title>
+  <title>Command Reference &mdash; datacats 0.11.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 0.10.0 documentation" href="index.html"/>
+    <link rel="top" title="datacats 0.11.0 documentation" href="index.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="How datacats uses Docker" href="docker.html"/> 
 
@@ -109,16 +109,19 @@
 <li class="toctree-l2"><a class="reference internal" href="#shell">shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#start">start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stop">stop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#less">less</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#datacats-lesscd">datacats-lesscd</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -182,6 +185,7 @@ The datacats commands available are:
   shell       Run a command or interactive shell within this environment
   start       Create containers and start serving environment
   stop        Stop serving environment and remove all its containers
+  less        Recompile less files in an environment
 
 See &#39;datacats help COMMAND&#39; for information about options and
 arguments available to each command.
@@ -193,7 +197,7 @@ arguments available to each command.
 <div class="highlight-text"><div class="highlight"><pre>Create a new environment
 
 Usage:
-  datacats create [-bni] [--address=IP] [--ckan=CKAN_VERSION] ENVIRONMENT_DIR [PORT]
+  datacats create [-bni] [--address=IP] [--syslog] [--ckan=CKAN_VERSION] ENVIRONMENT_DIR [PORT]
 
 Options:
   --address=IP            Address to listen on (Linux-only) [default: 127.0.0.1]
@@ -202,6 +206,7 @@ Options:
   -b --bare               Bare CKAN site with no example extension
   -i --image-only         Create the environment but don&#39;t start containers
   -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
+  --syslog                Log to the syslog
 
 ENVIRONMENT_DIR is a path for the new environment directory. The last
 part of this path will be used as the environment name.
@@ -248,12 +253,13 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Initialize a purged environment or copied environment directory
 
 Usage:
-  datacats init [-ni] [--address=IP] [ENVIRONMENT_DIR [PORT]]
+  datacats init [-ni] [--syslog] [--address=IP] [ENVIRONMENT_DIR [PORT]]
 
 Options:
   --address=IP            Address to listen on (Linux-only) [default: 127.0.0.1]
   -i --image-only         Create the environment but don&#39;t start containers
   -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
+  --syslog                Log to the syslog
 
 ENVIRONMENT_DIR is an existing datacats environment directory. Defaults to &#39;.&#39;
 </pre></div>
@@ -264,10 +270,12 @@ ENVIRONMENT_DIR is an existing datacats environment directory. Defaults to &#39;
 <div class="highlight-text"><div class="highlight"><pre>Install or reinstall Python packages within this environment
 
 Usage:
-  datacats install [-c] [ENVIRONMENT]
+  datacats install [-cq] [--address=IP] [ENVIRONMENT]
 
 Options:
-  -c --clean         Reinstall packages into a clean virtualenv
+  --address=IP          The address to bind to when reloading after install [default: 127.0.0.1]
+  -c --clean            Reinstall packages into a clean virtualenv
+  -q --quiet            Do not show output from installing packages and requirements.
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -340,7 +348,14 @@ specify the --plugin option. The --config option also need not be specified.
 <div class="highlight-text"><div class="highlight"><pre>Download or update required datacats docker images
 
 Usage:
-  datacats pull
+  datacats pull [-a]
+
+Options:
+  -a --all           Pull optional images as well as required
+                     images. Optional images will be pulled
+                     when needed, but you can use this to make
+                     sure you have all the images you need if
+                     you are going offline.
 </pre></div>
 </div>
 </div>
@@ -365,14 +380,15 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Reload environment source and configuration
 
 Usage:
-  datacats reload [-bp] [--address=IP] [ENVIRONMENT [PORT]]
-  datacats reload -r [-b] [--address=IP] [ENVIRONMENT]
+  datacats reload [-bp] [--address=IP] [--syslog] [ENVIRONMENT [PORT]]
+  datacats reload -r [-b] [--address=IP] [--syslog] [ENVIRONMENT]
 
 Options:
   --address=IP       Address to listen on (Linux-only) [default: 127.0.0.1]
   -b --background    Don&#39;t wait for response from web server
   -p --production    Reload with apache and debug=false
   -r --remote        Reload DataCats.com cloud instance
+  --syslog           Log to the syslog
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -399,14 +415,15 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Create containers and start serving environment
 
 Usage:
-  datacats start [-bp] [--address=IP] [ENVIRONMENT [PORT]]
-  datacats start -r [-b] [--address=IP] [ENVIRONMENT]
+  datacats start [-bp] [--address=IP] [--syslog] [ENVIRONMENT [PORT]]
+  datacats start -r [-b] [--address=IP] [--syslog] [ENVIRONMENT]
 
 Options:
   --address=IP       Address to listen on (Linux-only) [default: 127.0.0.1]
   -b --background    Don&#39;t wait for response from web server
   -p --production    Start with apache and debug=false
   -r --remote        Start DataCats.com cloud instance
+  --syslog           Log to the syslog
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -425,6 +442,29 @@ Options:
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="less">
+<h2>less<a class="headerlink" href="#less" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Recompiles less files in an environment.
+
+Usage:
+  datacats less [ENVIRONMENT]
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="datacats-lesscd">
+<h2>datacats-lesscd<a class="headerlink" href="#datacats-lesscd" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Watches a CKAN environment for changes in its .less files, and recompiles them when they do.
+
+Usage:
+  datacats-lesscd [--help] TARGET
+
+  --help -h         Show this help and quit.
 </pre></div>
 </div>
 </div>
@@ -469,7 +509,7 @@ Default: &#39;.&#39;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.10.0',
+            VERSION:'0.11.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
