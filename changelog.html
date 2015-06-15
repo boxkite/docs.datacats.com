@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Change Log &mdash; datacats 0.11.0 documentation</title>
+  <title>Change Log &mdash; datacats 0.11.1 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 0.11.0 documentation" href="index.html"/>
+    <link rel="top" title="datacats 0.11.1 documentation" href="index.html"/>
         <link rel="prev" title="Command Reference" href="commands.html"/> 
 
   
@@ -113,14 +113,15 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">0.11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -160,7 +161,13 @@
   <div class="section" id="change-log">
 <h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>0.11.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>0.11.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>fix for a deployment regression</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>0.11.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>workaround for common TLS error with boot2docker and recent openssl</li>
 <li>less: new command to compile less files to css</li>
@@ -175,8 +182,8 @@ to run &#8220;datacats logs&#8221;</li>
 <li>improved error messages when boot2docker containers are missing</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>0.10.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.10.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>create/start/reload &#8211;address=IP: choose the IP address to bind
 for serving ckan. allows use of datacats to serve public sites directly
@@ -191,26 +198,26 @@ for serving ckan. allows use of datacats to serve public sites directly
 have stopped</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>0.9.3<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>0.9.3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>fix for ConnectionError on OSX for some users</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>0.9.2<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>0.9.2<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>fix for deploy with docker 1.6</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>0.9.1<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>0.9.1<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>fix for shell command when containers already running</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>0.9<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>0.9<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>install &#8211;clean: install dependencies to an empty virtualenv
 to support running datacats with older ckan versions (local only)</li>
@@ -225,8 +232,8 @@ always need to be the exact matching versions</li>
 <li>fix for docker-py constant moved to a different module in 1.2.0</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2>0.8<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>0.8<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>create, init: fix for race between db creation and init</li>
 <li>create, init, start, reload: fix for automatic port selection</li>
@@ -241,8 +248,8 @@ in ckan+extension module directories</li>
 <li>purge: work even when some directories are missing</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h2>0.7<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>0.7<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>initial public release</li>
 </ul>
@@ -286,7 +293,7 @@ in ckan+extension module directories</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.11.0',
+            VERSION:'0.11.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
