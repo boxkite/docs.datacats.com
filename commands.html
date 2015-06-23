@@ -5,16 +5,16 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Command Reference &mdash; datacats 0.11.2 documentation</title>
+  <title>Command Reference &mdash; datacats 1.0.0dev1 documentation</title>
   
 
   
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,12 +30,12 @@
   
 
   
-    <link rel="top" title="datacats 0.11.2 documentation" href="index.html"/>
+    <link rel="top" title="datacats 1.0.0dev1 documentation" href="index.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="How datacats uses Docker" href="docker.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -47,8 +47,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="index.html" class="fa fa-home"> datacats</a>
+
         
+          <a href="index.html" class="icon icon-home"> datacats
+        
+
+        
+        </a>
+
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,6 +63,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -67,12 +75,23 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#what-is-datacats">What is datacats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#install-datacats">Install datacats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#install-docker">Install Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide.html#osx">OSX</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#install-datacats-command-line-tool">Install datacats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#download-the-necessary-docker-containers">Download the necessary Docker containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide.html#install-from-source">Install from source</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#extensions-customization">Extensions &amp; Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#deploying">Deploying</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#shell-access">Shell Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#multisite">Multisite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#logs">Logs</a></li>
 </ul>
 </li>
@@ -110,20 +129,19 @@
 <li class="toctree-l2"><a class="reference internal" href="#start">start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stop">stop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#less">less</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#migrate">migrate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#datacats-lesscd">datacats-lesscd</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.11.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.11.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -153,6 +171,8 @@
     <li>Command Reference</li>
       <li class="wy-breadcrumbs-aside">
         
+          
+        
       </li>
   </ul>
   <hr/>
@@ -177,8 +197,10 @@ The datacats commands available are:
   info        Display information about environment and running containers
   init        Initialize a purged environment or copied environment directory
   install     Install or reinstall Python packages within this environment
+  less        Recompile less files in an environment
   list        List all environments for this user
   logs        Display or follow container logs
+  migrate     Migrates an environment to the newest datadir format
   open        Open web browser window to this environment
   paster      Run a paster command from the current directory
   pull        Download or update required datacats docker images
@@ -187,7 +209,7 @@ The datacats commands available are:
   shell       Run a command or interactive shell within this environment
   start       Create containers and start serving environment
   stop        Stop serving environment and remove all its containers
-  less        Recompile less files in an environment
+  tweak       Commands operating on environment data
 
 See &#39;datacats help COMMAND&#39; for information about options and
 arguments available to each command.
@@ -199,16 +221,18 @@ arguments available to each command.
 <div class="highlight-text"><div class="highlight"><pre>Create a new environment
 
 Usage:
-  datacats create [-bni] [--address=IP] [--syslog] [--ckan=CKAN_VERSION] ENVIRONMENT_DIR [PORT]
+  datacats create [-bin] [-s NAME] [--address=IP] [--syslog] [--ckan=CKAN_VERSION]
+                  [--no-datapusher] ENVIRONMENT_DIR [PORT]
 
 Options:
   --address=IP            Address to listen on (Linux-only) [default: 127.0.0.1]
-  --ckan=CKAN_VERSION     Use CKAN version CKAN_VERSION, defaults to
-                          latest development release
+  --ckan=CKAN_VERSION     Use CKAN version CKAN_VERSION, defaults to 2.3
   -b --bare               Bare CKAN site with no example extension
   -i --image-only         Create the environment but don&#39;t start containers
   -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
+  -s --site=NAME          Pick a site to create [default: primary]
   --syslog                Log to the syslog
+  --no-datapusher         Don&#39;t install/enable ckanext-datapusher
 
 ENVIRONMENT_DIR is a path for the new environment directory. The last
 part of this path will be used as the environment name.
@@ -255,12 +279,14 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Initialize a purged environment or copied environment directory
 
 Usage:
-  datacats init [-ni] [--syslog] [--address=IP] [ENVIRONMENT_DIR [PORT]]
+  datacats init [-in] [--syslog] [-s NAME] [--address=IP]
+                [ENVIRONMENT_DIR [PORT]]
 
 Options:
   --address=IP            Address to listen on (Linux-only) [default: 127.0.0.1]
   -i --image-only         Create the environment but don&#39;t start containers
   -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
+  -s --site=NAME          Pick a site to initialize [default: primary]
   --syslog                Log to the syslog
 
 ENVIRONMENT_DIR is an existing datacats environment directory. Defaults to &#39;.&#39;
@@ -298,15 +324,16 @@ Usage:
 <div class="highlight-text"><div class="highlight"><pre>Display or follow container logs
 
 Usage:
-  datacats logs [-d | -s] [-tr] [--tail=LINES] [ENVIRONMENT]
-  datacats logs -f [-d | -s] [-r] [ENVIRONMENT]
+  datacats logs [--postgres | --solr] [-s NAME] [-tr] [--tail=LINES] [ENVIRONMENT]
+  datacats logs -f [--postgres | --solr] [-s NAME] [-r] [ENVIRONMENT]
 
 Options:
-  -d --postgres-logs Show postgres database logs instead of web logs
+  --postgres         Show postgres database logs instead of web logs
   -f --follow        Follow logs instead of exiting immediately
   -r --remote        Retrieve logs from DataCats.com cloud instance
-  -s --solr-logs     Show solr search logs instead of web logs
+  --solr             Show solr search logs instead of web logs
   -t --timestamps    Add timestamps to log lines
+  -s --site=NAME     Specify a site for logs if needed [default: primary]
   --tail=LINES       Number of lines to show [default: all]
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
@@ -319,10 +346,11 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Open web browser window to this environment
 
 Usage:
-  datacats open [-r] [ENVIRONMENT]
+  datacats open [-r] [-s NAME] [ENVIRONMENT]
 
 Options:
   -r --remote        Open DataCats.com cloud instance address
+  -s --site=NAME     Choose a site to open [default: primary]
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -334,9 +362,10 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Run a paster command from the current directory
 
 Usage:
-  datacats [-d] paster [COMMAND...]
+  datacats paster [-d] [-s NAME] [COMMAND...]
 
 Options:
+  -s --site=NAME   Specify a site to run this paster command on [default: primary]
   -d --detach       Run the resulting container in the background
 
 You must be inside a datacats environment to run this. The paster command will
@@ -366,10 +395,12 @@ Options:
 <div class="highlight-text"><div class="highlight"><pre>Purge environment database and uploaded files
 
 Usage:
-  datacats purge [-y] [--delete-environment] [ENVIRONMENT]
+  datacats purge [-s NAME | --delete-environment] [-y] [ENVIRONMENT]
 
 Options:
-  --delete-environment   Delete environment directory as well as its data
+  --delete-environment   Delete environment directory as well as its data, as
+                         well as the data for **all** sites.
+  -s --site=NAME         Specify a site to be purge [default: primary]
   -y --yes               Respond yes to all prompts (i.e. force)
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
@@ -382,14 +413,16 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Reload environment source and configuration
 
 Usage:
-  datacats reload [-bp] [--address=IP] [--syslog] [ENVIRONMENT [PORT]]
-  datacats reload -r [-b] [--address=IP] [--syslog] [ENVIRONMENT]
+  datacats reload [-b] [-p|--no-reload] [--syslog] [-s NAME] [--address=IP] [ENVIRONMENT [PORT]]
+  datacats reload -r [-b] [--syslog] [-s NAME] [--address=IP] [ENVIRONMENT]
 
 Options:
   --address=IP       Address to listen on (Linux-only) [default: 127.0.0.1]
   -b --background    Don&#39;t wait for response from web server
+  --no-reload        Do not automatically reload templates and .py files on change
   -p --production    Reload with apache and debug=false
   -r --remote        Reload DataCats.com cloud instance
+  -s --site=NAME     Specify a site to reload [default: primary]
   --syslog           Log to the syslog
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
@@ -402,10 +435,11 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Run a command or interactive shell within this environment
 
 Usage:
-  datacats [-d] shell [ENVIRONMENT [COMMAND...]]
+  datacats [-d] [-s NAME] shell [ENVIRONMENT [COMMAND...]]
 
 Options:
   -d --detach       Run the resulting container in the background
+  -s --site=NAME   Specify a site to run the shell on [default: primary]
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -417,14 +451,16 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Create containers and start serving environment
 
 Usage:
-  datacats start [-bp] [--address=IP] [--syslog] [ENVIRONMENT [PORT]]
-  datacats start -r [-b] [--address=IP] [--syslog] [ENVIRONMENT]
+  datacats start [-b] [-p|--no-reload] [-s NAME] [--syslog] [--address=IP] [ENVIRONMENT [PORT]]
+  datacats start -r [-b] [-s NAME] [--syslog] [--address=IP] [ENVIRONMENT]
 
 Options:
   --address=IP       Address to listen on (Linux-only) [default: 127.0.0.1]
   -b --background    Don&#39;t wait for response from web server
+  --no-reload        Do not automatically reload templates and .py files on change
   -p --production    Start with apache and debug=false
   -r --remote        Start DataCats.com cloud instance
+  -s --site=NAME     Specify a site to start [default: primary]
   --syslog           Log to the syslog
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
@@ -437,10 +473,11 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Stop serving environment and remove all its containers
 
 Usage:
-  datacats stop [-r] [ENVIRONMENT]
+  datacats stop [-r] [-s NAME] [ENVIRONMENT]
 
 Options:
   -r --remote        Stop DataCats.com cloud instance
+  -s --site=NAME    Specify a site to stop. [default: primary]
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -459,14 +496,33 @@ Default: &#39;.&#39;
 </pre></div>
 </div>
 </div>
+<div class="section" id="migrate">
+<h2>migrate<a class="headerlink" href="#migrate" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-text"><div class="highlight"><pre>Migrate an environment to a given revision of the datadir format.
+
+Usage:
+  datacats migrate [-y] [-r VERSION] [ENVIRONMENT_DIR]
+
+Options:
+  -r --revision=VERSION  The version of the datadir format you want
+                         to convert to [default: 2]
+  -y --yes               Answer yes to all questions.
+
+Defaults to &#39;.&#39; if ENVIRONMENT_DIR isn&#39;t specified.
+</pre></div>
+</div>
+</div>
 <div class="section" id="datacats-lesscd">
 <h2>datacats-lesscd<a class="headerlink" href="#datacats-lesscd" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-text"><div class="highlight"><pre>Watches a CKAN environment for changes in its .less files, and recompiles them when they do.
 
 Usage:
-  datacats-lesscd [--help] TARGET
+  datacats-lesscd [--help] ENVIRONMENT
 
   --help -h         Show this help and quit.
+
+ENVIRONMENT may be an environment name or a path to an environment directory.
+Default: &#39;.&#39;
 </pre></div>
 </div>
 </div>
@@ -478,10 +534,10 @@ Usage:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="changelog.html" class="btn btn-neutral float-right" title="Change Log">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Change Log" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="docker.html" class="btn btn-neutral" title="How datacats uses Docker"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral" title="How datacats uses Docker" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -493,10 +549,10 @@ Usage:
         &copy; Copyright 2015, boxkite.
     </p>
   </div>
-
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
+
 </footer>
+
         </div>
       </div>
 
@@ -511,7 +567,7 @@ Usage:
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.11.2',
+            VERSION:'1.0.0dev1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
