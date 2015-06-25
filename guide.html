@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>User Guide &mdash; datacats 0.11.2 documentation</title>
+  <title>User Guide &mdash; datacats 1.0.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 0.11.2 documentation" href="index.html"/>
+    <link rel="top" title="datacats 1.0.0 documentation" href="index.html"/>
         <link rel="next" title="FAQ" href="faq.html"/>
         <link rel="prev" title="Quickstart" href="quickstart.html"/> 
 
@@ -67,12 +67,13 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-datacats">What is datacats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-datacats">Install datacats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extensions-customization">Extensions &amp; Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deploying">Deploying</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#shell-access">Shell Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multisite">Multisite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#logs">Logs</a></li>
 </ul>
 </li>
@@ -99,31 +100,35 @@
 <li class="toctree-l2"><a class="reference internal" href="commands.html#info">info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#init">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#less">less</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#logs">logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#migrate">migrate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#open">open</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#paster">paster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#pull">pull</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#purge">purge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#reload">reload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#reset">reset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#shell">shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#start">start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#stop">stop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#less">less</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#tweak">tweak</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#datacats-lesscd">datacats-lesscd</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">0.11.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.11.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">0.11.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -172,30 +177,49 @@ know much about Docker, it doesn&#8217;t matter. You need to know very little ab
 it in order to use datacats. If you wish to know more about how
 this project works, take a look at <a class="reference internal" href="docker.html"><em>How datacats uses Docker</em></a>.</p>
 </div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-datacats">
+<h2>Install datacats<a class="headerlink" href="#install-datacats" title="Permalink to this headline">¶</a></h2>
+<p>Getting datacats ready for work involves three parts:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#install-docker">Install Docker</a></li>
+<li><a class="reference internal" href="#install-datacats-command-line-tool">Install datacats command line tool</a></li>
+<li><a class="reference internal" href="#download-the-necessary-docker-containers">Download the necessary Docker containers</a></li>
+</ul>
+<p>datacats currently supports <strong>Linux</strong> and <strong>OSX</strong> (Apple computers) operating systems out of the box.</p>
+<p>Windows is not supported natively just yet even though we are working on it.
+For now, you can run datacats on Windows using a Linux
+Virtual Machine. Simply install VirtualBox or VMWare, create a Ubuntu VM (Virtual Machine), and install datacats on top of it.</p>
 <div class="section" id="install-docker">
-<h3>Install Docker<a class="headerlink" href="#install-docker" title="Permalink to this headline">¶</a></h3>
-<p>You will need to install Docker first:</p>
+<span id="id1"></span><h3>Install Docker<a class="headerlink" href="#install-docker" title="Permalink to this headline">¶</a></h3>
+<p>You will need to install Docker first.
+Detailed OS-specific reference on how to do that is available at the
+<a class="reference external" href="https://docs.docker.com/installation/#installation">Installation Instructions section on Docker site</a> .</p>
+<p>Here is the quick OS-specific summary that is sufficient in most cases:</p>
 <div class="section" id="linux">
 <h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
-<p>Follow the instructions over at the <a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/#docker-maintained-package-installation">Docker Docs</a>. Make sure to install the
-Docker-maintained version of Docker, not the official Ubuntu-maintained version
-of Docker, which is out-of-date.</p>
+<p>Unfortunately, to date, some
+OS package installation tools (like apt-get on <strong>Ubuntu</strong>) still only offer obsolete
+versions of Docker by default which datacats does not support.</p>
+<p>The surest way to install the most recent version of Docker
+is to use the official installation script from the Docker website.</p>
+<p>Open your shell and run the command:</p>
+<div class="highlight-python"><div class="highlight"><pre>wget -qO- https://get.docker.com/ | sh
+</pre></div>
+</div>
+<p>This command uses <tt class="docutils literal"><span class="pre">wget</span></tt> tool to download the script from the website and then runs it
+in a shell (<tt class="docutils literal"><span class="pre">sh</span></tt>).</p>
+<p>Another potential ground for complications is that Docker needs
+Linux kernel version 3.10 or higher.
+Updating your Linux distribution to the more recent version should address that.
+In Ubuntu, version Ubuntu Saucy 13.10 or higher is sufficient.</p>
 </div>
 <div class="section" id="osx">
 <h4>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h4>
 <p>You will need <a class="reference external" href="https://docs.docker.com/installation/mac/">boot2docker</a>, the standard way to get Docker running on your Mac.</p>
 </div>
-<div class="section" id="windows">
-<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
-<p>Native Windows support is coming soon. For now, you can run datacats inside any Linux
-Virtual Machine. Simply install VirtualBox or VMWare, create a Ubuntu VM and
-<a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/#docker-maintained-package-installation">install Docker</a> on it.</p>
 </div>
-</div>
-<div class="section" id="install-datacats">
-<h3>Install datacats<a class="headerlink" href="#install-datacats" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="install-datacats-command-line-tool">
+<span id="id2"></span><h3>Install datacats<a class="headerlink" href="#install-datacats-command-line-tool" title="Permalink to this headline">¶</a></h3>
 <p>The easiest way to install datacats is with <tt class="docutils literal"><span class="pre">pip</span></tt>. In your shell run:</p>
 <div class="highlight-python"><div class="highlight"><pre>pip install datacats
 </pre></div>
@@ -204,13 +228,31 @@ Virtual Machine. Simply install VirtualBox or VMWare, create a Ubuntu VM and
 <div class="highlight-python"><div class="highlight"><pre>easy_install pip
 </pre></div>
 </div>
+</div>
+<div class="section" id="download-the-necessary-docker-containers">
+<span id="id3"></span><h3>Download the necessary Docker containers<a class="headerlink" href="#download-the-necessary-docker-containers" title="Permalink to this headline">¶</a></h3>
 <p>As a last setup step, we need to pull the Docker images needed to
 create your environment. This only needs to happen <strong>once</strong>. Those images are
 then re-used for all subsequent environments you create.</p>
-<p>To pull the Docker images run:</p>
+<p>To pull the Docker images just run:</p>
 <div class="highlight-python"><div class="highlight"><pre>datacats pull
 </pre></div>
 </div>
+<p>That is it, you are all set!</p>
+</div>
+<div class="section" id="install-from-source">
+<h3>Install from source<a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h3>
+<p>A more advanced option is to install datacats directly from the source code.</p>
+<p>This option may be needed if are considering contributing to the datacats development
+or would like to try the most recent (and potentially unstable) version.</p>
+<p>To install datacats directly from the <a class="reference external" href="https://github.com/datacats/datacats">source code repository on Github</a>,
+clone the source repo to your custom location and
+install datacats as a Python package from there:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:datacats/datacats.git
+python setup.py develop
+</pre></div>
+</div>
+<p>You will still need to download the necessary Docker images as described above.</p>
 </div>
 </div>
 <div class="section" id="getting-started">
@@ -219,7 +261,7 @@ then re-used for all subsequent environments you create.</p>
 <div class="highlight-python"><div class="highlight"><pre>datacats create catstown
 </pre></div>
 </div>
-<p>Once done, a CKAN environment is created for you in the directory <tt class="docutils literal"><span class="pre">catstown</span></tt>.
+<p>Once done, a CKAN source directory is created for you in the directory <tt class="docutils literal"><span class="pre">catstown</span></tt>.
 You will be prompted to create an admin password for your instance. You can
 use this password to log into your CKAN site.A message will also appear in your
 prompt at the end of the create command, with the address of where your CKAN
@@ -230,8 +272,8 @@ instance is running. To open that address easily at any time, you can always run
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>All <tt class="docutils literal"><span class="pre">datacats</span></tt> commands work without having to specify the project to run
-them on, as long as you are within a datacats environment directory. For the
-above command, we could as well have ran:</p>
+them on, as long as you are within a datacats environment directory or any sub-
+directory. For the above command, we could as well have ran:</p>
 <div class="last highlight-python"><div class="highlight"><pre>cd catstown/
 datacats open
 </pre></div>
@@ -353,6 +395,23 @@ datacats paster archiver clean
 </pre></div>
 </div>
 </div>
+<div class="section" id="multisite">
+<h2>Multisite<a class="headerlink" href="#multisite" title="Permalink to this headline">¶</a></h2>
+<p>As of version 1.0.0, datacats has support for having multiple &#8220;sites&#8221; under a
+single environment. This means that there can exist several discrete data
+catalogues based on the same CKAN source. This is done using the -s switch,
+which can be applied to all commands that make sense to operate on a single
+site (currently all commands excluding <tt class="docutils literal"><span class="pre">migrate</span></tt>, <tt class="docutils literal"><span class="pre">pull</span></tt>, <tt class="docutils literal"><span class="pre">less</span></tt>, and
+<tt class="docutils literal"><span class="pre">install</span></tt>). By default, datacats will operate on a site named &#8216;primary&#8217;,
+to maintain sane defaults.</p>
+<p>For example, to initialize a site with the name &#8216;devel&#8217; under a pre-existing
+environment called &#8216;testtown&#8217;, you could run the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats init -s devel testtown
+</pre></div>
+</div>
+<p>This would create all the necessary containers and folders for the site and
+begin running it on an appropriate (non-conflicting) port.</p>
+</div>
 <div class="section" id="logs">
 <h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
 <p>To see the log output of your CKAN:</p>
@@ -401,7 +460,7 @@ datacats paster archiver clean
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.11.2',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

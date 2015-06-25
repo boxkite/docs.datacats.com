@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Change Log &mdash; datacats 0.11.2 documentation</title>
+  <title>Change Log &mdash; datacats 1.0.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 0.11.2 documentation" href="index.html"/>
+    <link rel="top" title="datacats 1.0.0 documentation" href="index.html"/>
         <link rel="prev" title="Command Reference" href="commands.html"/> 
 
   
@@ -66,12 +66,13 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#what-is-datacats">What is datacats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#install-datacats">Install datacats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#extensions-customization">Extensions &amp; Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#deploying">Deploying</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#shell-access">Shell Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#multisite">Multisite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#logs">Logs</a></li>
 </ul>
 </li>
@@ -98,31 +99,35 @@
 <li class="toctree-l2"><a class="reference internal" href="commands.html#info">info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#init">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#less">less</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#logs">logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#migrate">migrate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#open">open</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#paster">paster</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#pull">pull</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#purge">purge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#reload">reload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#reset">reset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#shell">shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#start">start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#stop">stop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#less">less</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#tweak">tweak</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#datacats-lesscd">datacats-lesscd</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">0.11.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">0.11.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id10">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">0.11.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">0.11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -162,19 +167,44 @@
   <div class="section" id="change-log">
 <h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>0.11.2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>1.0.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>2015-06-24</p>
+<ul class="simple">
+<li>new support for multiple sites (DBs, files etc.) per environment</li>
+<li>new support for datapusher</li>
+<li>new support for ckanext-spatial</li>
+<li>new migrate command: migrate data directory formats between
+pre-multisite and post-multisite versions of datacats</li>
+<li>new reset command: reset DBs, files etc. to a default post-create
+state for a site</li>
+<li>init, create: now add postgis SQL to new DBs created</li>
+<li>create: now includes datapusher in the source directory by default</li>
+<li>tweak: new command can add postgis SQL to existing DBs</li>
+<li>lessc now streams output to show errors</li>
+<li>start, reload: new &#8211;no-watch option to prevent automatic paster
+reload on file changes, useful when testing updates to static files</li>
+<li>create, init, logs, open, paster, purge, reload, reset, shell,
+start, stop: new &#8211;site option to specify site</li>
+<li>bigger, shinier tracebacks and error messages</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>0.11.2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>2015-06-19</p>
 <ul class="simple">
 <li>fix for a second deployment regression</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>0.11.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>0.11.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>2015-06-15</p>
 <ul class="simple">
 <li>fix for a deployment regression</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>0.11.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>0.11.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>2015-06-05</p>
 <ul class="simple">
 <li>workaround for common TLS error with boot2docker and recent openssl</li>
 <li>less: new command to compile less files to css</li>
@@ -189,8 +219,9 @@ to run &#8220;datacats logs&#8221;</li>
 <li>improved error messages when boot2docker containers are missing</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h2>0.10.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h2>0.10.0<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>2015-05-19</p>
 <ul class="simple">
 <li>create/start/reload &#8211;address=IP: choose the IP address to bind
 for serving ckan. allows use of datacats to serve public sites directly
@@ -205,26 +236,30 @@ for serving ckan. allows use of datacats to serve public sites directly
 have stopped</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h2>0.9.3<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>0.9.3<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>2015-05-12</p>
 <ul class="simple">
 <li>fix for ConnectionError on OSX for some users</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h2>0.9.2<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>0.9.2<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>2015-05-06</p>
 <ul class="simple">
 <li>fix for deploy with docker 1.6</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2>0.9.1<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>0.9.1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>2015-05-05</p>
 <ul class="simple">
 <li>fix for shell command when containers already running</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h2>0.9<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>0.9<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>2015-05-05</p>
 <ul class="simple">
 <li>install &#8211;clean: install dependencies to an empty virtualenv
 to support running datacats with older ckan versions (local only)</li>
@@ -239,8 +274,9 @@ always need to be the exact matching versions</li>
 <li>fix for docker-py constant moved to a different module in 1.2.0</li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h2>0.8<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h2>0.8<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>2015-03-27</p>
 <ul class="simple">
 <li>create, init: fix for race between db creation and init</li>
 <li>create, init, start, reload: fix for automatic port selection</li>
@@ -255,8 +291,9 @@ in ckan+extension module directories</li>
 <li>purge: work even when some directories are missing</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h2>0.7<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h2>0.7<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>2015-03-15</p>
 <ul class="simple">
 <li>initial public release</li>
 </ul>
@@ -300,7 +337,7 @@ in ckan+extension module directories</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.11.2',
+            VERSION:'1.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
