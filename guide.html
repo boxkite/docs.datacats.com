@@ -5,16 +5,16 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>User Guide &mdash; datacats 1.0.1 documentation</title>
+  <title>User Guide &mdash; datacats 1.0.2 documentation</title>
   
 
   
   
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -30,12 +30,12 @@
   
 
   
-    <link rel="top" title="datacats 1.0.1 documentation" href="index.html"/>
+    <link rel="top" title="datacats 1.0.2 documentation" href="index.html"/>
         <link rel="next" title="FAQ" href="faq.html"/>
         <link rel="prev" title="Quickstart" href="quickstart.html"/> 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
@@ -47,8 +47,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
         
-          <a href="index.html" class="fa fa-home"> datacats</a>
+
         
+          <a href="index.html" class="icon icon-home"> datacats
+        
+
+        
+        </a>
+
         
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -57,6 +63,8 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
+        
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -67,7 +75,17 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-datacats">What is datacats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-datacats">Install datacats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-datacats">Install datacats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-docker">Install Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#osx">OSX</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#install-datacats-command-line-tool">Install datacats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-necessary-docker-containers">Download the necessary Docker containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-from-source">Install from source</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extensions-customization">Extensions &amp; Customization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deploying">Deploying</a></li>
@@ -118,18 +136,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.0.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">1.0.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">0.11.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.11.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">1.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">0.11.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">0.11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -158,6 +177,8 @@
       
     <li>User Guide</li>
       <li class="wy-breadcrumbs-aside">
+        
+          
         
       </li>
   </ul>
@@ -207,8 +228,8 @@ is to use the official installation script from the Docker website.</p>
 <div class="highlight-python"><div class="highlight"><pre>wget -qO- https://get.docker.com/ | sh
 </pre></div>
 </div>
-<p>This command uses <tt class="docutils literal"><span class="pre">wget</span></tt> tool to download the script from the website and then runs it
-in a shell (<tt class="docutils literal"><span class="pre">sh</span></tt>).</p>
+<p>This command uses <code class="docutils literal"><span class="pre">wget</span></code> tool to download the script from the website and then runs it
+in a shell (<code class="docutils literal"><span class="pre">sh</span></code>).</p>
 <p>Another potential ground for complications is that Docker needs
 Linux kernel version 3.10 or higher.
 Updating your Linux distribution to the more recent version should address that.
@@ -221,11 +242,11 @@ In Ubuntu, version Ubuntu Saucy 13.10 or higher is sufficient.</p>
 </div>
 <div class="section" id="install-datacats-command-line-tool">
 <span id="id2"></span><h3>Install datacats<a class="headerlink" href="#install-datacats-command-line-tool" title="Permalink to this headline">¶</a></h3>
-<p>The easiest way to install datacats is with <tt class="docutils literal"><span class="pre">pip</span></tt>. In your shell run:</p>
+<p>The easiest way to install datacats is with <code class="docutils literal"><span class="pre">pip</span></code>. In your shell run:</p>
 <div class="highlight-python"><div class="highlight"><pre>pip install datacats
 </pre></div>
 </div>
-<p>If you do not have <tt class="docutils literal"><span class="pre">pip</span></tt> installed, you can install it first by running:</p>
+<p>If you do not have <code class="docutils literal"><span class="pre">pip</span></code> installed, you can install it first by running:</p>
 <div class="highlight-python"><div class="highlight"><pre>easy_install pip
 </pre></div>
 </div>
@@ -262,7 +283,7 @@ python setup.py develop
 <div class="highlight-python"><div class="highlight"><pre>datacats create catstown
 </pre></div>
 </div>
-<p>Once done, a CKAN source directory is created for you in the directory <tt class="docutils literal"><span class="pre">catstown</span></tt>.
+<p>Once done, a CKAN source directory is created for you in the directory <code class="docutils literal"><span class="pre">catstown</span></code>.
 You will be prompted to create an admin password for your instance. You can
 use this password to log into your CKAN site.A message will also appear in your
 prompt at the end of the create command, with the address of where your CKAN
@@ -272,7 +293,7 @@ instance is running. To open that address easily at any time, you can always run
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>All <tt class="docutils literal"><span class="pre">datacats</span></tt> commands work without having to specify the project to run
+<p>All <code class="docutils literal"><span class="pre">datacats</span></code> commands work without having to specify the project to run
 them on, as long as you are within a datacats environment directory or any sub-
 directory. For the above command, we could as well have ran:</p>
 <div class="last highlight-python"><div class="highlight"><pre>cd catstown/
@@ -280,7 +301,7 @@ datacats open
 </pre></div>
 </div>
 </div>
-<p>Let&#8217;s see what is inside our new environment directory. <tt class="docutils literal"><span class="pre">cd</span></tt> into the directory
+<p>Let&#8217;s see what is inside our new environment directory. <code class="docutils literal"><span class="pre">cd</span></code> into the directory
 and take a look at the file structure. You should see something like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>catstown/
 |-ckan/
@@ -289,27 +310,27 @@ and take a look at the file structure. You should see something like this:</p>
 |-schema.xml
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">ckan/</span></tt> directory is the <a class="reference external" href="http://github.com/ckan/ckan">source code of the CKAN project</a>. By default,
+<p>The <code class="docutils literal"><span class="pre">ckan/</span></code> directory is the <a class="reference external" href="http://github.com/ckan/ckan">source code of the CKAN project</a>. By default,
 datacats will initialize each project with the lastest version of CKAN. You can
 change the version you wish to run by going into that directory and checking
 out a different branch or tag. Alternatively, if you know ahead of time which
 version of CKAN you wish to run, you can pass a flag directly to the
-<tt class="docutils literal"><span class="pre">datacats</span> <span class="pre">create</span></tt> command.</p>
-<p>The <tt class="docutils literal"><span class="pre">ckanext-catstowntheme</span></tt> directory is an auto-generated sample
+<code class="docutils literal"><span class="pre">datacats</span> <span class="pre">create</span></code> command.</p>
+<p>The <code class="docutils literal"><span class="pre">ckanext-catstowntheme</span></code> directory is an auto-generated sample
 <a class="reference external" href="http://extensions.ckan.org/">CKAN extension</a>.
 While you can use CKAN in it&#8217;s default form, most organizations and governments
 deploying CKAN customize it in some way. Many forms of customization, such as
 <a class="reference external" href="http://docs.ckan.org/en/latest/theming/index.html">designing your own custom theme</a>, do not require a deep knowledge of CKAN. The
-<tt class="docutils literal"><span class="pre">ckanext-catstowntheme</span></tt> extension gives you a very basic skeleton which you
+<code class="docutils literal"><span class="pre">ckanext-catstowntheme</span></code> extension gives you a very basic skeleton which you
 can use to get started.</p>
-<p>The <tt class="docutils literal"><span class="pre">development.ini</span></tt> file holds all the configuration options for your CKAN
+<p>The <code class="docutils literal"><span class="pre">development.ini</span></code> file holds all the configuration options for your CKAN
 environment. All of these options are described <a class="reference external" href="http://docs.ckan.org/en/latest/maintaining/configuration.html">here</a>. Open this file and find a
-line that starts with <tt class="docutils literal"><span class="pre">ckan.plugins</span></tt>. It will look something like this:</p>
+line that starts with <code class="docutils literal"><span class="pre">ckan.plugins</span></code>. It will look something like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>ckan.plugins = datastore text_preview recline_preview catstown_theme
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">catstown_theme</span></tt> is the extension endpoint for our kittyville extension,
-defined in <tt class="docutils literal"><span class="pre">ckanext-catstowntheme/setup.py</span></tt>. We can enable and disable our
+<p>The <code class="docutils literal"><span class="pre">catstown_theme</span></code> is the extension endpoint for our kittyville extension,
+defined in <code class="docutils literal"><span class="pre">ckanext-catstowntheme/setup.py</span></code>. We can enable and disable our
 extension by adding it or removing it from the plugins list above.</p>
 </div>
 <div class="section" id="extensions-customization">
@@ -317,12 +338,12 @@ extension by adding it or removing it from the plugins list above.</p>
 <p>To see how this works, let us install another extension into our environment.
 A good one to use is <a class="reference external" href="http://github.com/ckan/ckanext-pages">pages</a>, which adds a simple CMS to CKAN so we can add
 custom content pages to our site. First, clone the pages source code into your
-environment. In the <tt class="docutils literal"><span class="pre">catstown/</span></tt> environment directory, run:</p>
+environment. In the <code class="docutils literal"><span class="pre">catstown/</span></code> environment directory, run:</p>
 <div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:ckan/ckanext-pages.git
 </pre></div>
 </div>
 <p>This will clone the source into the ckanext-pages/ directory, right next to
-<tt class="docutils literal"><span class="pre">ckan/</span></tt> and <tt class="docutils literal"><span class="pre">ckanext-catstowntheme/</span></tt> like so:</p>
+<code class="docutils literal"><span class="pre">ckan/</span></code> and <code class="docutils literal"><span class="pre">ckanext-catstowntheme/</span></code> like so:</p>
 <div class="highlight-python"><div class="highlight"><pre>kittyville/
 |-ckan/
 |-ckanext-catstowntheme/
@@ -336,7 +357,7 @@ environment. In the <tt class="docutils literal"><span class="pre">catstown/</sp
 </pre></div>
 </div>
 <p>The install command will iterate through your environment directory and install
-all your extensions. After this is complete, we need to open the <tt class="docutils literal"><span class="pre">development.ini</span></tt>
+all your extensions. After this is complete, we need to open the <code class="docutils literal"><span class="pre">development.ini</span></code>
 file again and add the pages extension to our list of installed extensions:</p>
 <div class="highlight-python"><div class="highlight"><pre>ckan.plugins = datastore text_preview recline_preview catstown_theme pages
 </pre></div>
@@ -370,26 +391,26 @@ more about how datacats works under-the-hood. See <a class="reference internal" 
 <div class="highlight-python"><div class="highlight"><pre>datacats shell catstown
 </pre></div>
 </div>
-<p>Where <tt class="docutils literal"><span class="pre">catstown</span></tt> is your datacats environment name. The shell will immediately
-drop you inside your project directory, and it will activate the <tt class="docutils literal"><span class="pre">virtualenv</span></tt>.
-The shell is useful if you want to run admin <tt class="docutils literal"><span class="pre">paster</span></tt> tasks such as database
+<p>Where <code class="docutils literal"><span class="pre">catstown</span></code> is your datacats environment name. The shell will immediately
+drop you inside your project directory, and it will activate the <code class="docutils literal"><span class="pre">virtualenv</span></code>.
+The shell is useful if you want to run admin <code class="docutils literal"><span class="pre">paster</span></code> tasks such as database
 migrations, or you simply want to poke around your CKAN instance.</p>
 </div>
 <div class="section" id="paster-commands">
 <h2>Paster Commands<a class="headerlink" href="#paster-commands" title="Permalink to this headline">¶</a></h2>
-<p>To quickly run CKAN <tt class="docutils literal"><span class="pre">paster</span></tt> commands, you can do the following:</p>
+<p>To quickly run CKAN <code class="docutils literal"><span class="pre">paster</span></code> commands, you can do the following:</p>
 <div class="highlight-python"><div class="highlight"><pre>datacats paster sysadmin add joe
 </pre></div>
 </div>
 <p>Take a look at the <a class="reference external" href="http://docs.ckan.org/en/latest/maintaining/paster.html">CKAN paster page</a> for a list of available commands.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">With datacats, you don&#8217;t need to worry about activating your <tt class="docutils literal"><span class="pre">virtualenv</span></tt>,
-and you do not need to pass the <tt class="docutils literal"><span class="pre">--config</span></tt> option to paster. You also
-do not need to specify the <tt class="docutils literal"><span class="pre">--plugin=ckan</span></tt> option.
+<p class="last">With datacats, you don&#8217;t need to worry about activating your <code class="docutils literal"><span class="pre">virtualenv</span></code>,
+and you do not need to pass the <code class="docutils literal"><span class="pre">--config</span></code> option to paster. You also
+do not need to specify the <code class="docutils literal"><span class="pre">--plugin=ckan</span></code> option.
 datacats handles this for you automatically.</p>
 </div>
-<p>If you have <tt class="docutils literal"><span class="pre">paster</span></tt> commands inside your CKAN extensions, you can <tt class="docutils literal"><span class="pre">cd</span></tt> into
+<p>If you have <code class="docutils literal"><span class="pre">paster</span></code> commands inside your CKAN extensions, you can <code class="docutils literal"><span class="pre">cd</span></code> into
 the extension directory and run the command from there:</p>
 <div class="highlight-python"><div class="highlight"><pre>cd ckanext-archiver/
 datacats paster archiver clean
@@ -402,8 +423,8 @@ datacats paster archiver clean
 single environment. This means that there can exist several discrete data
 catalogues based on the same CKAN source. This is done using the -s switch,
 which can be applied to all commands that make sense to operate on a single
-site (currently all commands excluding <tt class="docutils literal"><span class="pre">migrate</span></tt>, <tt class="docutils literal"><span class="pre">pull</span></tt>, <tt class="docutils literal"><span class="pre">less</span></tt>, and
-<tt class="docutils literal"><span class="pre">install</span></tt>). By default, datacats will operate on a site named &#8216;primary&#8217;,
+site (currently all commands excluding <code class="docutils literal"><span class="pre">migrate</span></code>, <code class="docutils literal"><span class="pre">pull</span></code>, <code class="docutils literal"><span class="pre">less</span></code>, and
+<code class="docutils literal"><span class="pre">install</span></code>). By default, datacats will operate on a site named &#8216;primary&#8217;,
 to maintain sane defaults.</p>
 <p>For example, to initialize a site with the name &#8216;devel&#8217; under a pre-existing
 environment called &#8216;testtown&#8217;, you could run the following command:</p>
@@ -428,10 +449,10 @@ begin running it on an appropriate (non-conflicting) port.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="faq.html" class="btn btn-neutral float-right" title="FAQ">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quickstart.html" class="btn btn-neutral" title="Quickstart"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="quickstart.html" class="btn btn-neutral" title="Quickstart" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -443,10 +464,10 @@ begin running it on an appropriate (non-conflicting) port.</p>
         &copy; Copyright 2015, boxkite.
     </p>
   </div>
-
   Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
+
 </footer>
+
         </div>
       </div>
 
@@ -461,7 +482,7 @@ begin running it on an appropriate (non-conflicting) port.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.0.1',
+            VERSION:'1.0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
