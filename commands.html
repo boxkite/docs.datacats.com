@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Command Reference &mdash; datacats 1.1.0 documentation</title>
+  <title>Command Reference &mdash; datacats 1.2.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 1.1.0 documentation" href="index.html"/>
+    <link rel="top" title="datacats 1.2.0 documentation" href="index.html"/>
         <link rel="next" title="Change Log" href="changelog.html"/>
         <link rel="prev" title="How datacats uses Docker" href="docker.html"/> 
 
@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="guide.html#deploying">Deploying</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#shell-access">Shell Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#developing-on-ckan-using-datacats">Developing on CKAN using DataCats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#multisite">Multisite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#logs">Logs</a></li>
 </ul>
@@ -114,7 +115,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">Command Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#help">help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create">create</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deploy">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#info">info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#init">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install">install</a></li>
@@ -136,21 +136,22 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.1.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">1.0.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">1.0.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">1.0.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">1.0.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.11.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.11.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id15">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">1.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">1.0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">1.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">1.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.11.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id15">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id16">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -202,7 +203,6 @@ Usage:
 
 The datacats commands available are:
   create      Create a new environment
-  deploy      Deploy environment to production DataCats.com cloud service
   info        Display information about environment and running containers
   init        Initialize a purged environment or copied environment directory
   install     Install or reinstall Python packages within this environment
@@ -231,41 +231,25 @@ arguments available to each command.
 <div class="highlight-text"><div class="highlight"><pre>Create a new environment
 
 Usage:
-  datacats create [-bin] [-s NAME] [--address=IP] [--syslog] [--ckan=CKAN_VERSION]
-                  [--no-datapusher] [--site-url SITE_URL] ENVIRONMENT_DIR [PORT]
+  datacats create [-bin] [--interactive] [-s NAME] [--address=IP] [--syslog]
+                  [--ckan=CKAN_VERSION] [--no-datapusher] [--site-url SITE_URL]
+                  [--no-init-db] ENVIRONMENT_DIR [PORT]
 
 Options:
   --address=IP            Address to listen on (Linux-only)
   --ckan=CKAN_VERSION     Use CKAN version CKAN_VERSION [default: 2.3]
   -b --bare               Bare CKAN site with no example extension
   -i --image-only         Create the environment but don&#39;t start containers
+  --interactive           Doesn&#39;t detach from the web container
+  --no-datapusher         Don&#39;t install/enable ckanext-datapusher
+  --no-init-db            Don&#39;t initialize the database. Useful for importing CKANs.
   -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
   -s --site=NAME          Pick a site to create [default: primary]
-  --no-datapusher         Don&#39;t install/enable ckanext-datapusher
   --site-url SITE_URL     The site_url to use in API responses (e.g. http://example.org:{port}/)
   --syslog                Log to the syslog
 
 ENVIRONMENT_DIR is a path for the new environment directory. The last
 part of this path will be used as the environment name.
-</pre></div>
-</div>
-</div>
-<div class="section" id="deploy">
-<h2>deploy<a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre>Deploy environment to production DataCats.com cloud service
-
-Usage:
-  datacats deploy [--create] [ENVIRONMENT [TARGET_NAME]]
-
-Options:
-  --create                Create a new environment on DataCats.com instead
-                          of updating an existing environment
-
-ENVIRONMENT may be an environment name or a path to a environment directory.
-Default: &#39;.&#39;
-
-TARGET_NAME is the name of the environment on DataCats.com. Defaults to
-the environment name.
 </pre></div>
 </div>
 </div>
@@ -278,7 +262,6 @@ Usage:
 
 Options:
   -q --quiet         Echo only the web URL or nothing if not running
-  -r --remote        Information about DataCats.com cloud instance
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
 Default: &#39;.&#39;
@@ -290,12 +273,14 @@ Default: &#39;.&#39;
 <div class="highlight-text"><div class="highlight"><pre>Initialize a purged environment or copied environment directory
 
 Usage:
-  datacats init [-in] [--syslog] [-s NAME] [--address=IP]
-                [--site-url SITE_URL] [ENVIRONMENT_DIR [PORT]]
+  datacats init [-in] [--syslog] [-s NAME] [--address=IP] [--interactive]
+                [--site-url SITE_URL] [ENVIRONMENT_DIR [PORT]] [--no-init-db]
 
 Options:
   --address=IP            Address to listen on (Linux-only)
+  --interactive           Don&#39;t detach from the web container
   -i --image-only         Create the environment but don&#39;t start containers
+  --no-init-db            Don&#39;t initialize the database. Useful for importing other CKANs
   -n --no-sysadmin        Don&#39;t prompt for an initial sysadmin user account
   -s --site=NAME          Pick a site to initialize [default: primary]
   --site-url SITE_URL     The site_url to use in API responses (e.g. http://example.org:{port}/)
@@ -310,7 +295,8 @@ ENVIRONMENT_DIR is an existing datacats environment directory. Defaults to &#39;
 <div class="highlight-text"><div class="highlight"><pre>Install or reinstall Python packages within this environment
 
 Usage:
-  datacats install [-cq] [--address=IP] [ENVIRONMENT]
+  datacats install [-q] [--address=IP] [ENVIRONMENT [PACKAGE ...]]
+  datacats install -c [q] [--address=IP] [ENVIRONMENT]
 
 Options:
   --address=IP          The address to bind to when reloading after install
@@ -355,7 +341,6 @@ Options:
   --datapusher       Show logs for datapusher instead of web logs
   --postgres         Show postgres database logs instead of web logs
   -f --follow        Follow logs instead of exiting immediately
-  -r --remote        Retrieve logs from DataCats.com cloud instance
   --solr             Show solr search logs instead of web logs
   -t --timestamps    Add timestamps to log lines
   -s --site=NAME     Specify a site for logs if needed [default: primary]
@@ -390,7 +375,6 @@ Usage:
   datacats open [-r] [-s NAME] [ENVIRONMENT]
 
 Options:
-  -r --remote        Open DataCats.com cloud instance address
   -s --site=NAME     Choose a site to open [default: primary]
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
@@ -455,18 +439,19 @@ Default: &#39;.&#39;
 
 Usage:
   datacats reload [-b] [-p|--no-watch] [--syslog] [-s NAME] [--site-url=SITE_URL]
-                            [--address=IP] [ENVIRONMENT [PORT]]
+                            [-i] [--address=IP] [ENVIRONMENT [PORT]]
   datacats reload -r [-b] [--syslog] [-s NAME] [--address=IP] [--site-url=SITE_URL]
-                            [ENVIRONMENT]
+                            [-i] [ENVIRONMENT]
 
 Options:
   --address=IP          Address to listen on (Linux-only)
+  -i --interactive      Calls out to docker via the command line, allowing
+                        for interactivity with the web image.
   --site-url=SITE_URL   The site_url to use in API responses. Can use Python template syntax
                         to insert the port and address (e.g. http://example.org:{port}/)
   -b --background       Don&#39;t wait for response from web server
   --no-watch            Do not automatically reload templates and .py files on change
   -p --production       Reload with apache and debug=false
-  -r --remote           Reload DataCats.com cloud instance
   -s --site=NAME        Specify a site to reload [default: primary]
   --syslog              Log to the syslog
 
@@ -481,9 +466,10 @@ Default: &#39;.&#39;
 database and recreate the administrator account.
 
 Usage:
-  datacats reset [-yn] [-s NAME] [ENVIRONMENT]
+  datacats reset [-iyn] [-s NAME] [ENVIRONMENT]
 
 Options:
+  -i --interactive        Don&#39;t detach from the web container
   -s --site=NAME          The site to reset [default: primary]
   -y --yes                Respond yes to all questions
   -n --no-sysadmin        Don&#39;t prompt for a sysadmin password
@@ -512,16 +498,17 @@ Default: &#39;.&#39;
 
 Usage:
   datacats start [-b] [--site-url SITE_URL] [-p|--no-watch] [-s NAME]
-                 [--syslog] [--address=IP] [ENVIRONMENT [PORT]]
+                 [-i] [--syslog] [--address=IP] [ENVIRONMENT [PORT]]
   datacats start -r [-b] [--site-url SITE_URL] [-s NAME] [--syslog]
-                 [--address=IP] [ENVIRONMENT]
+                 [-i] [--address=IP] [ENVIRONMENT]
 
 Options:
   --address=IP          Address to listen on (Linux-only)
   -b --background       Don&#39;t wait for response from web server
   --no-watch            Do not automatically reload templates and .py files on change
+  -i --interactive      Calls out to docker via the command line, allowing
+                        for interactivity with the web image.
   -p --production       Start with apache and debug=false
-  -r --remote           Start DataCats.com cloud instance
   -s --site=NAME        Specify a site to start [default: primary]
   --syslog              Log to the syslog
   --site-url SITE_URL   The site_url to use in API responses. Defaults to old setting or
@@ -540,7 +527,6 @@ Usage:
   datacats stop [-r] [-s NAME] [ENVIRONMENT]
 
 Options:
-  -r --remote        Stop DataCats.com cloud instance
   -s --site=NAME    Specify a site to stop. [default: primary]
 
 ENVIRONMENT may be an environment name or a path to an environment directory.
@@ -624,7 +610,7 @@ Default: &#39;.&#39;
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.1.0',
+            VERSION:'1.2.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

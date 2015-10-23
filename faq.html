@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FAQ &mdash; datacats 1.1.0 documentation</title>
+  <title>FAQ &mdash; datacats 1.2.0 documentation</title>
   
 
   
@@ -30,7 +30,7 @@
   
 
   
-    <link rel="top" title="datacats 1.1.0 documentation" href="index.html"/>
+    <link rel="top" title="datacats 1.2.0 documentation" href="index.html"/>
         <link rel="next" title="How datacats uses Docker" href="docker.html"/>
         <link rel="prev" title="User Guide" href="guide.html"/> 
 
@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="guide.html#deploying">Deploying</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#shell-access">Shell Access</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#developing-on-ckan-using-datacats">Developing on CKAN using DataCats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#multisite">Multisite</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide.html#logs">Logs</a></li>
 </ul>
@@ -114,7 +115,6 @@
 <li class="toctree-l1"><a class="reference internal" href="commands.html">Command Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#help">help</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#create">create</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#deploy">deploy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#info">info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#init">init</a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#install">install</a></li>
@@ -136,21 +136,22 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.1.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">1.0.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">1.0.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">1.0.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">1.0.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">0.11.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.11.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.11.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.9.3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.9.2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.9.1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.9</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog.html#id15">0.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id1">1.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id2">1.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id3">1.0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id4">1.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id5">1.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id6">1.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id7">0.11.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id8">0.11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id9">0.11.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id10">0.10.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id11">0.9.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id12">0.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id13">0.9.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id14">0.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id15">0.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#id16">0.7</a></li>
 </ul>
 </li>
 </ul>
@@ -196,7 +197,7 @@ common CKAN tasks. We&#8217;re always looking for more. If you have examples of 
 own you wish to share, please submit a pull request.</p>
 <div class="section" id="run-an-interactive-paster-shell">
 <h2>Run an interactive Paster Shell<a class="headerlink" href="#run-an-interactive-paster-shell" title="Permalink to this headline">¶</a></h2>
-<p>Anywhere within your datacats environment directory, run:</p>
+<p>Anywhere within a datacats source directory, run:</p>
 <div class="highlight-python"><div class="highlight"><pre>datacats shell . paster --plugin=pylons shell
 </pre></div>
 </div>
@@ -204,7 +205,7 @@ own you wish to share, please submit a pull request.</p>
 <div class="section" id="run-celery-tasks">
 <h2>Run Celery tasks<a class="headerlink" href="#run-celery-tasks" title="Permalink to this headline">¶</a></h2>
 <p>If you have an extension that is using Celery, make sure that the extension is
-installed in your environment with <code class="docutils literal"><span class="pre">datacats</span> <span class="pre">install</span></code>. You can then run a
+installed with <code class="docutils literal"><span class="pre">datacats</span> <span class="pre">install</span></code>. You can then run a
 container with a celery daemon like this:</p>
 <div class="highlight-python"><div class="highlight"><pre>datacats paster celeryd
 </pre></div>
@@ -214,7 +215,7 @@ container with a celery daemon like this:</p>
 <h2>Cleaning the database doesn&#8217;t work.<a class="headerlink" href="#cleaning-the-database-doesn-t-work" title="Permalink to this headline">¶</a></h2>
 <p>When running the command <code class="docutils literal"><span class="pre">paster</span> <span class="pre">db</span> <span class="pre">clean</span></code>, the command will freeze as it is
 blocked from cleaning the database if CKAN is connected to the db (<a class="reference external" href="https://github.com/ckan/ckan/issues/2306">see issue</a>)
-. To get around this, stop the <code class="docutils literal"><span class="pre">web</span></code> docker container for your environment
+. To get around this, stop the <code class="docutils literal"><span class="pre">web</span></code> docker container for your site
 first, then issue the command, and reload datacats:</p>
 <div class="highlight-python"><div class="highlight"><pre>docker stop datacats_web_myckan
 datacats paster db clean
@@ -237,7 +238,7 @@ library - <a class="reference external" href="https://urllib3.readthedocs.org/en
 copy of the CKAN source. By default datacats only checks out a shallow copy of
 the CKAN github repo. This can cause minor headaches if you are planning on
 contributing your code changes to core CKAN.</p>
-<p>In the <code class="docutils literal"><span class="pre">/ckan</span></code> directory of your datacats environment, run the following git
+<p>In the <code class="docutils literal"><span class="pre">/ckan</span></code> directory of your datacats source directory, run the following git
 command:</p>
 <div class="highlight-python"><div class="highlight"><pre>git fetch --unshallow
 </pre></div>
@@ -248,7 +249,7 @@ command:</p>
 <p>Sometimes you will need to upgrade boot2docker. Or, you may encounter a problem
 where the boot2docker VM is unreachable or otherwise broken. Whatever the case,
 if you had to delete the boot2docker VM and create a new one, follow these steps
-to get your CKAN environments up and running again:</p>
+to get your CKAN sites up and running again:</p>
 <ul>
 <li><p class="first">First, you will need to pull the CKAN docker images again:</p>
 <div class="highlight-python"><div class="highlight"><pre>datacats pull
@@ -309,7 +310,7 @@ datacats purge
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.1.0',
+            VERSION:'1.2.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
