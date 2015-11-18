@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#insecureplatformwarning">InsecurePlatformWarning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-on-core-ckan">Working on Core CKAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#boot2docker-upgrading-or-recovering-from-failures">boot2docker - Upgrading or Recovering from failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-obsolete-docker-images">Remove obsolete Docker images</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="docker.html">How datacats uses Docker</a></li>
@@ -217,6 +218,19 @@ datacats purge
 </div>
 </li>
 </ul>
+</div>
+<div class="section" id="remove-obsolete-docker-images">
+<h2>Remove obsolete Docker images<a class="headerlink" href="#remove-obsolete-docker-images" title="Permalink to this headline">¶</a></h2>
+<p>Building Docker images locally will retain the image snapshots and eventually
+raise a &#8220;Docker APIError 500: no space left on device&#8221;.</p>
+<p>To free up hard drive space, remove only the obsolete docker images with:</p>
+<div class="highlight-python"><div class="highlight"><pre>rmi $(docker images -q)
+</pre></div>
+</div>
+<p>Remember that the user running this command must be in the <code class="docutils literal"><span class="pre">docker</span></code> group.
+<code class="docutils literal"><span class="pre">rmi</span></code> will only remove images which are not currently running as containers.
+This step is largely risk-free, as you can restore any images by simply pulling
+or building them again - only local modifications to images can be lost.</p>
 </div>
 </div>
 
