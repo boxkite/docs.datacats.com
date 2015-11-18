@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#insecureplatformwarning">InsecurePlatformWarning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#working-on-core-ckan">Working on Core CKAN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#boot2docker-upgrading-or-recovering-from-failures">boot2docker - Upgrading or Recovering from failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modify-local-docker-images">Modify local Docker images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#remove-obsolete-docker-images">Remove obsolete Docker images</a></li>
 </ul>
 </li>
@@ -218,6 +219,21 @@ datacats purge
 </div>
 </li>
 </ul>
+</div>
+<div class="section" id="modify-local-docker-images">
+<h2>Modify local Docker images<a class="headerlink" href="#modify-local-docker-images" title="Permalink to this headline">¶</a></h2>
+<p>When developing or troubleshooting, it might be desirable to modify local
+Docker containers. Note, this is not part of the normal workflow and should
+not be necessary in day-to-day deployment and use.</p>
+<p>First, pull the all the latest images with <code class="docutils literal"><span class="pre">datacats</span> <span class="pre">pull</span> <span class="pre">-a</span></code>.
+Next, run each command separately on the desired container, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre>docker run datacats/web apt-get install -y some-extra-package
+docker ps -lq
+6f51fba7febb
+docker commit 6f51fba7febb datacats/web
+</pre></div>
+</div>
+<p>This will persist until you <code class="docutils literal"><span class="pre">datacats</span> <span class="pre">pull</span></code> again.</p>
 </div>
 <div class="section" id="remove-obsolete-docker-images">
 <h2>Remove obsolete Docker images<a class="headerlink" href="#remove-obsolete-docker-images" title="Permalink to this headline">¶</a></h2>
