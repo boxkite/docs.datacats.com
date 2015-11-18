@@ -86,12 +86,12 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-datacats">What is datacats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-datacats">Install datacats</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install-docker">Install Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-docker">Install Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-virtualenv-environment">Create a virtualenv environment:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#linux">Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#osx">OSX</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#create-a-virtualenv-environment">Create a virtualenv environment:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-datacats-command-line-tool">Install datacats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-the-necessary-docker-containers">Download the necessary Docker containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-from-source">Install from source</a></li>
@@ -171,6 +171,7 @@ this project works, take a look at <a class="reference internal" href="docker.ht
 <p>Getting datacats ready for work involves three parts:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#install-docker">Install Docker</a></li>
+<li><a class="reference internal" href="#create-a-virtualenv-environment">Create a virtualenv environment</a></li>
 <li><a class="reference internal" href="#install-datacats-command-line-tool">Install datacats command line tool</a></li>
 <li><a class="reference internal" href="#download-the-necessary-docker-containers">Download the necessary Docker containers</a></li>
 </ul>
@@ -184,6 +185,16 @@ Virtual Machine. Simply install VirtualBox or VMWare, create a Ubuntu VM (Virtua
 Detailed OS-specific reference on how to do that is available at the
 <a class="reference external" href="https://docs.docker.com/installation/#installation">Installation Instructions section on Docker site</a> .</p>
 <p>Here is the quick OS-specific summary that is sufficient in most cases:</p>
+</div>
+<div class="section" id="create-a-virtualenv-environment">
+<span id="id2"></span><h3>Create a virtualenv environment:<a class="headerlink" href="#create-a-virtualenv-environment" title="Permalink to this headline">¶</a></h3>
+<p>We recommend you use datacats inside a virtualenv environment. To install
+<a class="reference external" href="http://virtualenv.readthedocs.org/en/latest/index.html">virtualenv</a> run the following in your shell:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip install virtualenv
+virtualenv myckan
+. myckan/bin/activate
+</pre></div>
+</div>
 <div class="section" id="linux">
 <h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
 <p>Unfortunately, to date, some
@@ -207,18 +218,8 @@ In Ubuntu, version Ubuntu Saucy 13.10 or higher is sufficient.</p>
 <p>You will need <a class="reference external" href="https://docs.docker.com/installation/mac/">docker-machine</a>, the standard way to get Docker running on your Mac.</p>
 </div>
 </div>
-<div class="section" id="create-a-virtualenv-environment">
-<span id="create-a-virtualenv"></span><h3>Create a virtualenv environment:<a class="headerlink" href="#create-a-virtualenv-environment" title="Permalink to this headline">¶</a></h3>
-<p>We recommend you use datacats inside a virtualenv environment. To install
-<a class="reference external" href="http://virtualenv.readthedocs.org/en/latest/index.html">virtualenv</a> run the following in your shell:</p>
-<div class="highlight-python"><div class="highlight"><pre>pip install virtualenv
-virtualenv myckan
-. myckan/bin/activate
-</pre></div>
-</div>
-</div>
 <div class="section" id="install-datacats-command-line-tool">
-<span id="id2"></span><h3>Install datacats<a class="headerlink" href="#install-datacats-command-line-tool" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Install datacats<a class="headerlink" href="#install-datacats-command-line-tool" title="Permalink to this headline">¶</a></h3>
 <p>The easiest way to install datacats is with <code class="docutils literal"><span class="pre">pip</span></code>. Making sure your virtualenv
 is activated, in your shell run the following:</p>
 <div class="highlight-python"><div class="highlight"><pre>pip install datacats
@@ -230,7 +231,7 @@ is activated, in your shell run the following:</p>
 </div>
 </div>
 <div class="section" id="download-the-necessary-docker-containers">
-<span id="id3"></span><h3>Download the necessary Docker containers<a class="headerlink" href="#download-the-necessary-docker-containers" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3>Download the necessary Docker containers<a class="headerlink" href="#download-the-necessary-docker-containers" title="Permalink to this headline">¶</a></h3>
 <p>As a last setup step, we need to pull the Docker images needed to
 create your environment. This only needs to happen <strong>once</strong>. Those images are
 then re-used for all subsequent environments you create.</p>
