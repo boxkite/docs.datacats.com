@@ -3,7 +3,7 @@
 set -e
 
 cd "`dirname $0`/../../datacats"
-rm -r build/sphinx || true
+#rm -r build/sphinx || true
 python setup.py build_sphinx
 
 cd ../docs.datacats.com

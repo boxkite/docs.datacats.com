@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CKAN Reference &mdash; datacats 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="datacats 0.1 documentation" href="index.html"/>
+        <link rel="next" title="How datacats uses Docker" href="docker.html"/>
+        <link rel="prev" title="Command Reference" href="commands.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> datacats</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#what-is-datacats">What is datacats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#extensions-customization">Extensions &amp; Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#deploying">Deploying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#shell-access">Shell Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#paster-commands">Paster Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide.html#logs">Logs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Command Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#help">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#create">create</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#deploy">deploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#install">install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#list">list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#logs">logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#open">open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#pull">pull</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#purge">purge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#reload">reload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#shell">shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#start">start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands.html#stop">stop</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">CKAN Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#run-an-interactive-paster-shell">Run an interactive Paster Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-data-from-one-ckan-into-another">Load data from one CKAN into another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-ckan-test-suite">Run the CKAN test suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-celery-tasks">Run Celery tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-on-core-ckan">Working on Core CKAN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">How datacats uses Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#images-and-containers">Images and Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#throw-away-containers">Throw-away containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#stateless-development">Stateless development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#devops">DevOps</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">datacats</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>CKAN Reference</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/ckan.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="ckan-reference">
+<h1>CKAN Reference<a class="headerlink" href="#ckan-reference" title="Permalink to this headline">¶</a></h1>
+<p>This page contains a few recipes on how to use DataCats to easily accomplish
+common CKAN tasks. We&#8217;re always looking for more. If you have examples of your
+own you wish to share, please submit a pull request.</p>
+<div class="section" id="run-an-interactive-paster-shell">
+<h2>Run an interactive Paster Shell<a class="headerlink" href="#run-an-interactive-paster-shell" title="Permalink to this headline">¶</a></h2>
+<p>Anywhere within your datacats environment directory, run:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats shell . paster --plugin=pylons shell
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-data-from-one-ckan-into-another">
+<h2>Load data from one CKAN into another<a class="headerlink" href="#load-data-from-one-ckan-into-another" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="run-the-ckan-test-suite">
+<h2>Run the CKAN test suite<a class="headerlink" href="#run-the-ckan-test-suite" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="run-celery-tasks">
+<h2>Run Celery tasks<a class="headerlink" href="#run-celery-tasks" title="Permalink to this headline">¶</a></h2>
+<p>If you have an extension that is using Celery, make sure that the extension is
+installed in your environment with <tt class="docutils literal"><span class="pre">datacats</span> <span class="pre">install</span></tt>. You can then run a
+container with a celery daemon like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>datacats paster celeryd
+</pre></div>
+</div>
+</div>
+<div class="section" id="working-on-core-ckan">
+<h2>Working on Core CKAN<a class="headerlink" href="#working-on-core-ckan" title="Permalink to this headline">¶</a></h2>
+<p>If you plan on working on core CKAN code, you should first <tt class="docutils literal"><span class="pre">unshallow</span></tt> your
+copy of the CKAN source. By default datacats only checks out a shallow copy of
+the CKAN github repo. This can cause minor headaches if you are planning on
+contributing your code changes to core CKAN.</p>
+<p>In the <tt class="docutils literal"><span class="pre">/ckan</span></tt> directory of your datacats environment, run the following git
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre>git fetch --unshallow
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docker.html" class="btn btn-neutral float-right" title="How datacats uses Docker"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="commands.html" class="btn btn-neutral" title="Command Reference"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, boxkite.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

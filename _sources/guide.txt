@@ -66,13 +66,27 @@ OSX
 ###
 You will need `docker-machine`_, the standard way to get Docker running on your Mac.
 
-.. docker-machine: https://docs.docker.com/installation/mac/
+.. _docker-machine: https://docs.docker.com/installation/mac/
+
+.. _`Create a virtualenv`:
+
+Create a virtualenv environment:
+""""""""""""""""""""""""""""""""
+We recommend you use datacats inside a virtualenv environment. To install 
+`virtualenv`_ run the following in your shell: ::
+
+    pip install virtualenv
+    virtualenv myckan
+    . myckan/bin/activate
+
+.. _virtualenv: http://virtualenv.readthedocs.org/en/latest/index.html
 
 .. _`Install datacats command line tool`:
 
 Install datacats
 """""""""""""""""""""
-The easiest way to install datacats is with ``pip``. In your shell run: ::
+The easiest way to install datacats is with ``pip``. Making sure your virtualenv
+is activated, in your shell run the following: ::
 
     pip install datacats
 
